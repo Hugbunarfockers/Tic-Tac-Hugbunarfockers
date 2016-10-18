@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #on windows
-java -cp "classes/;lib/junit-4.11.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.git-cat-go.git-cat-go-test
+java -cp "classes/;lib/junit-4.11.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore test.java.com.hugbunarfockers.gitcatgo.GitCatGoTest

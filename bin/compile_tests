@@ -4,4 +4,4 @@ if [ ! -d classes ]; then
 fi
 
 #on windows
-javac -classpath "classes;lib\junit-4.11.jar" src/test/git-cat-go/*.java -d classes
+javac -classpath "classes;lib\junit-4.11.jar" src/test/java/com/hugbunarfockers/gitcatgo/*.java -d classes

@@ -2,4 +2,4 @@
 if [ ! -d classes ]; then
   mkdir classes
 fi
-javac src/main/git-cat-go/*.java -d classes
+javac src/main/java/com/hugbunarfockers/gitcatgo/*.java -d classes
