@@ -1,4 +1,4 @@
 #!/bin/bash
-if[ -d classes]; then
+if[ -d classes ]; then
   rm -r classes/*
 fi
