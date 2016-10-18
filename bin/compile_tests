@@ -2,6 +2,4 @@
 if [ ! -d classes ]; then
   mkdir classes
 fi
-
-#on windows
-javac -classpath "classes;lib\junit-4.11.jar" src/test/java/com/hugbunarfockers/gitcatgo/*.java -d classes
+javac -classpath "classes;lib/junit-4.12.jar" src/test/java/com/hugbunarfockers/gitcatgo/*.java -d classes

@@ -1,3 +1,4 @@
 #!/bin/bash
-
- rm -r classes/*
+if[ -d classes]; then
+  rm -r classes/*
+fi
