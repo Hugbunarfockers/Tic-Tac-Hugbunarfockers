@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -d classes ]; then
+  mkdir classes
+fi
+
+#on windows
+javac -classpath "classes;lib\junit-4.11.jar" src/test/git-cat-go/*.java -d classes
