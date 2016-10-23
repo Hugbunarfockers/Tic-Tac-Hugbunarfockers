@@ -2,7 +2,11 @@
 
 ### Game Definition
 
-We want to create the popular game, Tic Tac Toe.
+We are going to create the popular game, Tic Tac Toe. 
+Architecture?
+* Two Tier?
+* Three Tier?
+* Onion?
 
 ### Design Description
 
