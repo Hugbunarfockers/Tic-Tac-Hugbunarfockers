@@ -1,10 +1,8 @@
 # GitCatGo - Design
 
-We want our design to be the shiiit....:
+### Game Definition
 
-### Stuff.
-
-Stuff.
+We want to create the popular game, Tic Tac Toe.
 
 ### Stuff.
 
