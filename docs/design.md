@@ -4,14 +4,12 @@
 
 We want to create the popular game, Tic Tac Toe.
 
-### Stuff.
+### Design Description
 
 Stuff.
 
-### Stuff.
+### Evaluation
 
 Stuff.
-### Stuff.
 
-Stuff.
 
