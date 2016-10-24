@@ -33,4 +33,12 @@ public class ScoreTest
 		score.setPlayer1ID(5);
 		assertEquals(5, score.getPlayer1ID());	
 	}
+
+	@Test
+	public void TestSetPlayer2ID()
+	{
+		Score score = new Score(1, 2, 3);
+		score.setPlayer1ID(6);
+		assertEquals(6, score.getPlayer1ID());	
+	}
 }

@@ -32,4 +32,9 @@ public class Score
 	{
 		player1ID = id;
 	}
+
+	public void setPlayer2ID(int id)
+	{
+		player2ID = id;
+	}
 }
