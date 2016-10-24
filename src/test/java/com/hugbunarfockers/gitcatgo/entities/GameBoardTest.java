@@ -1,0 +1,15 @@
+package com.hugbunarfockers.gitcatgo.entities;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class GameBoardTest
+{
+	@Test
+	public void testSetBoardValue()
+	{
+		GameBoard testBoard = new GameBoard();
+		testBoard.setBoardValue(1, 1, 1);
+		assertEquals(1, testBoard.getBoard()[1][1]);
+	}
+}
