@@ -15,5 +15,12 @@ public class PlayerTest
 		Player newPlayer = new Player(1, "Sigrún", "666");
 		assertEquals(1, newPlayer.getId());
 	}
+
+	@Test
+	public void testGetName()
+	{
+		Player newPlayer = new Player(1, "Sigrún", "666");
+		assertEquals("Sigrún", newPlayer.getName());
+	}
 	
 }
