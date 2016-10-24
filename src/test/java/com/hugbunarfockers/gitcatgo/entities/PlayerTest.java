@@ -3,10 +3,6 @@ package com.hugbunarfockers.gitcatgo.entities;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
-import org.hamcrest.Matcher;
-
 public class PlayerTest
 {
 	@Test
