@@ -37,4 +37,9 @@ public class Score
 	{
 		player2ID = id;
 	}
+
+	public void setWinnerID(int id)
+	{
+		winnerID = id;
+	}
 }
