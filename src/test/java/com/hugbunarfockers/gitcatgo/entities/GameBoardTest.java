@@ -18,4 +18,12 @@ public class GameBoardTest
 	{
 		assertEquals(3, GameBoard.getSize());
 	}
+
+	@Test
+	public void testWinner()
+	{
+		GameBoard testBoard = new GameBoard();
+		testBoard.setWinner(2);
+		assertEquals(2, testBoard.getWinner());
+	}
 }
