@@ -25,4 +25,12 @@ public class ScoreTest
 		Score score = new Score(1, 2, 3);
 		assertEquals(3, score.getWinnerID());	
 	}
+
+	@Test
+	public void TestSetPlayer1ID()
+	{
+		Score score = new Score(1, 2, 3);
+		score.setPlayer1ID(5);
+		assertEquals(5, score.getPlayer1ID());	
+	}
 }
