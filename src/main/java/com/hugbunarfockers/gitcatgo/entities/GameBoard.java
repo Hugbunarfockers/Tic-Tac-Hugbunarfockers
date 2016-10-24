@@ -19,4 +19,9 @@ public class GameBoard
 	{
 		board[x][y] = player;
 	}
+
+	public static int getSize()
+	{
+		return SIZE;
+	}
 }

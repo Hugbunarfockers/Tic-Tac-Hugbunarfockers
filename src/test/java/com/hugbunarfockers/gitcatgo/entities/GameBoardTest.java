@@ -12,4 +12,10 @@ public class GameBoardTest
 		testBoard.setBoardValue(1, 1, 1);
 		assertEquals(1, testBoard.getBoard()[1][1]);
 	}
+
+	@Test
+	public void testSetSize()
+	{
+		assertEquals(3, GameBoard.getSize());
+	}
 }
