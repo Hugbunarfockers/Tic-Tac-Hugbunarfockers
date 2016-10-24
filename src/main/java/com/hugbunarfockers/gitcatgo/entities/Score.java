@@ -17,5 +17,14 @@ public class Score
 	{
 		return player1ID;
 	}
+
+	public int getPlayer2ID()
+	{
+		return player2ID;
+	}
 	
+	public int getWinnerID()
+	{
+		return winnerID;
+	}
 }
