@@ -1,19 +1,22 @@
 package com.hugbunarfockers.gitcatgo.entities;
 
-public class Player{
-	
+import java.math.BigInteger;
+
+public class Player
+{
 	private static int playerId;
 	private static String playerName;
 	private static String playerKey;
 
-	public static Player(int id, String name, String key)
+	public Player(int id, String name, String key)
 	{
 		playerId = id;
 		playerName = name;
 		playerKey = key;
 	}
 
-	public int getId(){
+	public int getId()
+	{
 		return playerId;
 	}
 

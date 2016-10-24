@@ -3,18 +3,17 @@ package com.hugbunarfockers.gitcatgo.entities;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
+import org.hamcrest.Matcher;
+
 public class PlayerTest
 {
 	@Test
-	public static void main(String [] args)
+	public void testGetId()
 	{
-		private static Player newPlayer;
-		
-		@Test
-		public void createPlayer()
-		{
-			newPlayer = new Player(1, "Sigrún", "666");
-			assertEquals(newPlayer)
-		}
+		Player newPlayer = new Player(1, "Sigrún", "666");
+		assertEquals(1, newPlayer.getId());
 	}
+	
 }
