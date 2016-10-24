@@ -10,6 +10,8 @@ The base package name should be "<B>com.hugbunarfockers.gitcatgo.*</B>", without
 
 ## Layout
 
+We decided on a simple 3-tier architecture.
+
 ### Entities
 
 Package name: <B>com.hugbunarfockers.gitcatgo.entities</B>
