@@ -8,6 +8,8 @@ Naming conventions:
  * Constant/Final variables use UPPERCASE, this overrides other rules.
  * Method parameters always use camelCase.
  * Method names use camelCase.
+ * Always write ID with uppercase, this overwrites the other rules.
+    * Do not write Id or id.
 
 Allman style is used for all brackets.
 

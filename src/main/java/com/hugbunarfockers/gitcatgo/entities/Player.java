@@ -2,20 +2,20 @@ package com.hugbunarfockers.gitcatgo.entities;
 
 public class Player
 {
-	private int playerId;
+	private int playerID;
 	private String playerName;
 	private String playerKey;
 
-	public Player(int id, String name, String key)
+	public Player(int ID, String name, String key)
 	{
-		playerId = id;
+		playerID = ID;
 		playerName = name;
 		playerKey = key;
 	}
 
-	public int getId()
+	public int getID()
 	{
-		return playerId;
+		return playerID;
 	}
 
 	public String getName()
