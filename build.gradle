@@ -13,15 +13,16 @@ apply plugin: 'application'
 mainClassName = "com.hugbunarfockers.gitcatgo.GitCatGo"
 
 repositories {
-    jcenter()
+	jcenter()
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.21'
+	compile 'org.slf4j:slf4j-api:1.7.21'
+	compile 'mysql:mysql-connector-java:6.0.5'
 
     testCompile 'junit:junit:4.12'
 }
 
 task stage {
-  dependsOn installDist
+	dependsOn installDist
 }
