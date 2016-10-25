@@ -3,12 +3,13 @@ package com.hugbunarfockers.gitcatgo.data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-public class DBM
+public class DBManagement
 {
 	private Connection db;
 
-	public DBM()
+	public DBManagement()
 	{
 		try
 		{
@@ -45,6 +46,23 @@ public class DBM
 		{
 			printSQLException(ex);
 		}
+	}
+
+	public Statement createStatement()
+	{
+		if(!isClosed())
+		{
+			try
+			{
+				return db.createStatement();
+			}
+			catch(SQLException ex)
+			{
+				printSQLException(ex);
+			}
+		}
+		
+		return null;
 	}
 
 	private void printSQLException(SQLException ex)
