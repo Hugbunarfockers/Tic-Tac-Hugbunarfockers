@@ -1,5 +1,6 @@
 package com.hugbunarfockers.gitcatgo.data;
 
+import com.hugbunarfockers.gitcatgo.entities.Player;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.sql.PreparedStatement;
@@ -12,6 +13,8 @@ public class DBInteractionTest
     @Test
 	public void testAddPlayer()
 	{
+		truncateTables();
+
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
         DBInteraction dbi = new DBInteraction(dbm);
 
@@ -25,11 +28,39 @@ public class DBInteractionTest
 	@Test
 	public void testAddSamePlayerTwice()
 	{
+		truncateTables();
+
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
         DBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("Test", "tests"));
 		assertEquals(false, dbi.addPlayer("Test", "tests"));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
+	@Test
+	public void testGetPlayer()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+		// Create compare player
+		Player comparePlayer = new Player(1, "TEST", "TESTS");
+
+		// Add the player
+		assertEquals(true, dbi.addPlayer("Test", "tests"));
+
+		// Compare
+		Player dbPlayer = dbi.getPlayer("TEST", "TESTS");
+
+		assertEquals(comparePlayer.getID(), dbPlayer.getID());
+		assertEquals(comparePlayer.getName(), dbPlayer.getName());
+		assertEquals(comparePlayer.getKey(), dbPlayer.getKey());
 
 		dbm.close();
 
