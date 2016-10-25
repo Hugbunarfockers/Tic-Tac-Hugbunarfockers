@@ -6,47 +6,47 @@ import org.junit.Test;
 public class ScoreTest
 {
 	@Test
-	public void TestGetPlayer1ID()
+	public void testGetPlayer1ID()
 	{
 		Score score = new Score(1, 2, 1);
-		assertEquals(1, score.getPlayer1ID());	
+		assertEquals(1, score.getPlayer1ID());
 	}
 
 	@Test
-	public void TestGetPlayer2ID()
+	public void testGetPlayer2ID()
 	{
 		Score score = new Score(1, 2, 1);
-		assertEquals(2, score.getPlayer2ID());	
+		assertEquals(2, score.getPlayer2ID());
 	}
 
 	@Test
-	public void TestGetWinnerID()
+	public void testGetWinnerID()
 	{
 		Score score = new Score(1, 2, 3);
-		assertEquals(3, score.getWinnerID());	
+		assertEquals(3, score.getWinnerID());
 	}
 
 	@Test
-	public void TestSetPlayer1ID()
+	public void testSetPlayer1ID()
 	{
 		Score score = new Score(1, 2, 3);
 		score.setPlayer1ID(5);
-		assertEquals(5, score.getPlayer1ID());	
+		assertEquals(5, score.getPlayer1ID());
 	}
 
 	@Test
-	public void TestSetPlayer2ID()
+	public void testSetPlayer2ID()
 	{
 		Score score = new Score(1, 2, 3);
 		score.setPlayer1ID(6);
-		assertEquals(6, score.getPlayer1ID());	
+		assertEquals(6, score.getPlayer1ID());
 	}
 
 	@Test
-	public void TestSetWinnerID()
+	public void testSetWinnerID()
 	{
 		Score score = new Score(1, 2, 3);
 		score.setPlayer1ID(6);
-		assertEquals(6, score.getPlayer1ID());	
+		assertEquals(6, score.getPlayer1ID());
 	}
 }

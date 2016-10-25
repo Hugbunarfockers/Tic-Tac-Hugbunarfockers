@@ -1,18 +1,18 @@
 package com.hugbunarfockers.gitcatgo.entities;
-import java.math.*;
+
 public class Score
 {
 	private int player1ID;
 	private int player2ID;
 	private int winnerID;
 
-	public Score(int player1, int player2, int winner)
+	public Score(int player1ID, int player2ID, int winnerID)
 	{
-		player1ID = player1;
-		player2ID = player2;
-		winnerID = winner;
+		this.player1ID = player1ID;
+		this.player2ID = player2ID;
+		this.winnerID = winnerID;
 	}
-	
+
 	public int getPlayer1ID()
 	{
 		return player1ID;
@@ -22,24 +22,24 @@ public class Score
 	{
 		return player2ID;
 	}
-	
+
 	public int getWinnerID()
 	{
 		return winnerID;
 	}
 
-	public void setPlayer1ID(int id)
+	public void setPlayer1ID(int ID)
 	{
-		player1ID = id;
+		player1ID = ID;
 	}
 
-	public void setPlayer2ID(int id)
+	public void setPlayer2ID(int ID)
 	{
-		player2ID = id;
+		player2ID = ID;
 	}
 
-	public void setWinnerID(int id)
+	public void setWinnerID(int ID)
 	{
-		winnerID = id;
+		winnerID = ID;
 	}
 }
