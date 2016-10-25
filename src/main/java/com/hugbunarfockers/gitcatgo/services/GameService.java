@@ -29,6 +29,18 @@ public class GameService
         return currentPlayer;
     }
 
+    public void changeCurrentPlayer()
+    {
+        if(currentPlayer == player1)
+        {
+            currentPlayer = player2;
+        }
+        else
+        {
+            currentPlayer = player1;
+        }
+    }
+
     private void fillBoard()
     {
         int boardSize = ticTacToe.getSize();
