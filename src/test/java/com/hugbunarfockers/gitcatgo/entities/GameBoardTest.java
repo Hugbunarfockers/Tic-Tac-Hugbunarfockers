@@ -9,8 +9,8 @@ public class GameBoardTest
 	public void testSetBoardValue()
 	{
 		GameBoard testBoard = new GameBoard();
-		testBoard.setBoardValue(1, 1, 1);
-		assertEquals(1, testBoard.getBoard()[1][1]);
+		testBoard.setBoardValue(1, 1, 'x');
+		assertEquals('x', testBoard.getBoard()[1][1]);
 	}
 
 	@Test
