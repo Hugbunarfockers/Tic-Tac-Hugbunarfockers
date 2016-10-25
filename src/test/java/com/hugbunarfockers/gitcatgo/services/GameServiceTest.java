@@ -47,4 +47,28 @@ public class GameServiceTest
 		testBoard.changeCurrentPlayer();
 		assertEquals(p2, testBoard.getCurrentPlayer());
 	}
+
+	@Test
+	public void testSetBoardValue()
+	{
+		Player p1 = new Player(1, "s", "b");
+        Player p2 = new Player(2, "h", "l");
+        GameBoard board = new GameBoard();
+		GameService testBoard = new GameService(board, p1, p2);
+		
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++)
+			{
+				testBoard.setBoardValue(i, j, 'x');
+			}
+		}
+
+		testBoard.setBoardValue(1,1, 'o');
+		char[][] newBoard = testBoard.getBoard();
+		assertEquals('x', newBoard[0][1]);
+		assertEquals('x', newBoard[1][2]);
+		assertEquals('o', newBoard[1][1]);
+	}
+
+
 }

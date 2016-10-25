@@ -24,6 +24,11 @@ public class GameService
         return ticTacToe.getBoard();   
     }
 
+    public void setBoardValue(int x, int y, char player)
+    {
+        ticTacToe.setBoardValue(x, y, player);
+    }
+
     public Player getCurrentPlayer()
     {
         return currentPlayer;
@@ -50,7 +55,7 @@ public class GameService
         {
             for(int j = 0; j < boardSize; j++)
             {
-                ticTacToe.setBoardValue(i, j, value);
+                setBoardValue(i, j, value);
                 value++;  
             }
         }
