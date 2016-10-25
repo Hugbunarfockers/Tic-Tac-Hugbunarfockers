@@ -114,31 +114,31 @@ public class DBInteraction
 		return false;
 	}
 
-	public ArrayList<Score> getScoresByPlayerID(int playerID)
+	public int getWinsBetweenPlayerIDs(int playerID, int opponentID)
 	{
-		ArrayList<Score> list = new ArrayList<Score>();
+		int wins = 0;
 
 		if(!dbm.isClosed())
 		{
 			try
 			{
-				String sql = "SELECT * FROM Scores WHERE Player1ID = ? OR Player2ID = ?";
+				String sql = "SELECT COUNT(*) AS Wins FROM Scores "
+							+ "WHERE ((Player1ID = ? AND Player2ID = ?) "
+							+ "OR (Player1ID = ? AND Player2ID = ?))"
+							+ "AND WinnerID = ?";
 
 				PreparedStatement stmt = dbm.prepareStatement(sql);
 				stmt.setInt(1, playerID);
-				stmt.setInt(2, playerID);
+				stmt.setInt(2, opponentID);
+				stmt.setInt(3, opponentID);
+				stmt.setInt(4, playerID);
+				stmt.setInt(5, playerID);
 
 	      		ResultSet rs = stmt.executeQuery();
 
-				while(rs.next())
+				if(rs.next())
 				{
-					int player1ID = rs.getInt("Player1ID");
-					int player2ID = rs.getInt("Player2ID");
-					int winnerID = rs.getInt("WinnerID");
-
-					Score score = new Score(player1ID, player2ID, winnerID);
-
-					list.add(score);
+					wins = rs.getInt("Wins");
 				}
 
 				rs.close();
@@ -150,6 +150,6 @@ public class DBInteraction
 			}
 		}
 
-		return list;
+		return wins;
 	}
 }

@@ -90,33 +90,26 @@ public class DBInteractionTest
 	}
 
 	@Test
-	public void testGetScoresByPlayerID()
+	public void testGetWinsBetweenPlayerIDs()
 	{
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
         DBInteraction dbi = new DBInteraction(dbm);
 
-		// Create compare score
-		Score compareScore = new Score(1, 2, 1);
-
 		// Add players
 		assertEquals(true, dbi.addPlayer("Player1", "tests"));
 		assertEquals(true, dbi.addPlayer("Player2", "tests"));
 
-		// Add score
+		// Add scores
 		assertEquals(true, dbi.addScore(1, 2, 1));
+		assertEquals(true, dbi.addScore(2, 1, 1));
+		assertEquals(true, dbi.addScore(1, 2, 1));
+		assertEquals(true, dbi.addScore(1, 2, 2));
+		assertEquals(true, dbi.addScore(2, 1, 2));
 
-		// Get score
-		ArrayList<Score> dbScores = dbi.getScoresByPlayerID(1);
-
-		// Assert size
-		assertEquals(1, dbScores.size());
-
-		// Compare
-		assertEquals(compareScore.getPlayer1ID(), dbScores.get(0).getPlayer1ID());
-		assertEquals(compareScore.getPlayer2ID(), dbScores.get(0).getPlayer2ID());
-		assertEquals(compareScore.getWinnerID(), dbScores.get(0).getWinnerID());
+		assertEquals(3, dbi.getWinsBetweenPlayerIDs(1, 2));
+		assertEquals(2, dbi.getWinsBetweenPlayerIDs(2, 1));
 
 		dbm.close();
 
