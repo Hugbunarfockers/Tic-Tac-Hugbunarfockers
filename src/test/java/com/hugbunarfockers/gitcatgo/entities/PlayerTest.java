@@ -6,10 +6,10 @@ import org.junit.Test;
 public class PlayerTest
 {
 	@Test
-	public void testGetId()
+	public void testGetID()
 	{
 		Player newPlayer = new Player(1, "Sigrún", "666");
-		assertEquals(1, newPlayer.getId());
+		assertEquals(1, newPlayer.getID());
 	}
 
 	@Test
@@ -25,5 +25,5 @@ public class PlayerTest
 		Player newPlayer = new Player(1, "Sigrún", "666");
 		assertEquals("666", newPlayer.getKey());
 	}
-	
+
 }
