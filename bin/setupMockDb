@@ -1,9 +1,0 @@
-#!/bin/bash
-
-file="sql/mock/GitCatGoMock.db"
-
-if [ -f $file ] ; then
-    rm $file
-fi
-
-cp sql/mock/GitCatGoMockEmpty.db $file

@@ -16,6 +16,49 @@ public class DBInteractionTest
         DBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("Test", "tests"));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
+	@Test
+	public void testAddSamePlayerTwice()
+	{
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+		assertEquals(true, dbi.addPlayer("Test", "tests"));
+		assertEquals(false, dbi.addPlayer("Test", "tests"));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
+	private void truncateTables()
+	{
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+
+		try
+		{
+			PreparedStatement stmt = dbm.prepareStatement("DELETE FROM sqlite_sequence");
+			stmt.executeUpdate();
+			stmt.close();
+
+			stmt = dbm.prepareStatement("DELETE FROM Scores");
+			stmt.executeUpdate();
+			stmt.close();
+
+			stmt = dbm.prepareStatement("DELETE FROM Players");
+			stmt.executeUpdate();
+			stmt.close();
+		}
+		catch(SQLException ex)
+		{
+			DBManagement.printSQLException(ex);
+		}
+
 		dbm.close();
 	}
 }

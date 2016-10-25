@@ -27,9 +27,3 @@ dependencies {
 task stage {
 	dependsOn installDist
 }
-
-task preTest(type: Exec) {
-    commandLine './bin/setupMockDb'
-}
-
-test.dependsOn preTest
