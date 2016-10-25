@@ -35,6 +35,18 @@ public class DBM
 		return true;
 	}
 
+	public void close()
+	{
+		try
+		{
+			db.close();
+		}
+		catch(SQLException ex)
+		{
+			printSQLException(ex);
+		}
+	}
+
 	private void printSQLException(SQLException ex)
 	{
 		System.out.println("SQLException: " + ex.getMessage());

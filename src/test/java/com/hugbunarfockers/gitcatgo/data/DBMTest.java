@@ -11,4 +11,12 @@ public class DBMTest
 		DBM dbm = new DBM();
 		assertEquals(false, dbm.isClosed());
 	}
+
+	@Test
+	public void testClose()
+	{
+		DBM dbm = new DBM();
+		dbm.close();
+		assertEquals(true, dbm.isClosed());
+	}
 }
