@@ -1,5 +1,5 @@
 package com.hugbunarfockers.gitcatgo.entities;
-import java.math.*;
+
 public class Score
 {
 	private int player1ID;
@@ -12,7 +12,7 @@ public class Score
 		player2ID = player2;
 		winnerID = winner;
 	}
-	
+
 	public int getPlayer1ID()
 	{
 		return player1ID;
@@ -22,7 +22,7 @@ public class Score
 	{
 		return player2ID;
 	}
-	
+
 	public int getWinnerID()
 	{
 		return winnerID;
