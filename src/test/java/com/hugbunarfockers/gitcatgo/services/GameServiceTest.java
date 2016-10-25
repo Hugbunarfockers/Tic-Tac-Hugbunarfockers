@@ -13,8 +13,18 @@ public class GameServiceTest
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
 		GameService testBoard = new GameService(board, p1, p2);
-		testBoard.fillBoard();
        	char[][] newBoard = testBoard.getBoard();
-		assertEquals('1', newBoard[0][0]);
+		assertEquals('2', newBoard[0][1]);
 	}
+
+	@Test
+	public void testGetBoard()
+	{
+		Player p1 = new Player(1, "s", "b");
+        Player p2 = new Player(2, "h", "l");
+        GameBoard board = new GameBoard();
+		GameService testBoard = new GameService(board, p1, p2);
+		assertEquals(board.getBoard(), testBoard.getBoard());
+	}
+
 }
