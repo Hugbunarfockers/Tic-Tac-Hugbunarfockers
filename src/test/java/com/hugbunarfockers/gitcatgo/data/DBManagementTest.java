@@ -7,10 +7,12 @@ import java.sql.SQLException;
 
 public class DBManagementTest
 {
+	private final String sqliteConnectionString = "jdbc:sqlite:sql/mock/GitCatGoMock.db";
+
 	@Test
 	public void testIsClosed()
 	{
-		DBManagement dbm = new DBManagement();
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		assertEquals(false, dbm.isClosed());
 		dbm.close();
 	}
@@ -18,7 +20,7 @@ public class DBManagementTest
 	@Test
 	public void testClose()
 	{
-		DBManagement dbm = new DBManagement();
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		dbm.close();
 		assertEquals(true, dbm.isClosed());
 	}
@@ -26,7 +28,7 @@ public class DBManagementTest
 	@Test
 	public void testPrepareStatement()
 	{
-		DBManagement dbm = new DBManagement();
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
 
 		try

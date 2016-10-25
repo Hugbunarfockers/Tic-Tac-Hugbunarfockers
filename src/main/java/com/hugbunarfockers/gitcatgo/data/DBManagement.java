@@ -9,12 +9,11 @@ public class DBManagement
 {
 	private Connection db;
 
-	public DBManagement()
+	public DBManagement(String connectionString)
 	{
 		try
 		{
-			db = DriverManager.getConnection("jdbc:mysql://173.248.137.197:3306/gitcatgo?"
-												+ "user=gitcatgo&password=gitcatgo2016");
+			db = DriverManager.getConnection(connectionString);
 		}
 		catch(SQLException ex)
 		{
