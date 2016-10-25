@@ -64,7 +64,7 @@ public class DBManagement
 		return null;
 	}
 
-	private void printSQLException(SQLException ex)
+	public static void printSQLException(SQLException ex)
 	{
 		System.out.println("SQLException: " + ex.getMessage());
 		System.out.println("SQLState: " + ex.getSQLState());
