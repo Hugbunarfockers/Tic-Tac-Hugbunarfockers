@@ -1,5 +1,7 @@
 package com.hugbunarfockers.gitcatgo.services;
 
+import com.hugbunarfockers.gitcatgo.entities.*;
+
 public class GameService
 {
     private GameBoard ticTacToe;
@@ -7,7 +9,7 @@ public class GameService
     private Player player2;
     private Player currentPlayer;
 
-    public GameService(Gameboard board, Player p1, Player p2)
+    public GameService(GameBoard board, Player p1, Player p2)
     {
         ticTacToe = board;
         player1 = p1;
@@ -56,20 +58,20 @@ public class GameService
 
       // }
 
-      private void changeCurrentPlayer()
-      {
-          if(currentPlayer == player1)
-          {
-              currentPlayer = player2;
-          }
-          else
-          {
-              currentPlayer = p1;
-          }
-      }
+    private void changeCurrentPlayer()
+    {
+        if(currentPlayer == player1)
+        {
+            currentPlayer = player2;
+        }
+        else
+        {
+            currentPlayer = player1;
+        }
+    }
 
-      private void fillBoard()
-      {
+    public void fillBoard()
+    {
         int value = 1;
         int boardSize = ticTacToe.getSize();
 
@@ -77,9 +79,14 @@ public class GameService
         {
             for(int j = 0; j < boardSize; j++)
             {
-                ticTacToe.setValue(i, j, value);
+                ticTacToe.setBoardValue(i, j, value);
                 value++;
             }
         }
-      }
+    }
+
+    public int[][] getBoard()
+    {
+        return ticTacToe.getBoard();   
+    }
 }
