@@ -9,8 +9,9 @@
 
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
-mainClassName = "com.hugbunarfockers.gitcatgo.GitCatGo"
+mainClassName = 'com.hugbunarfockers.gitcatgo.GitCatGo'
 
 repositories {
 	jcenter()
@@ -27,3 +28,11 @@ dependencies {
 task stage {
 	dependsOn installDist
 }
+
+jacocoTestReport {
+    reports {
+        html.enabled true
+    }
+}
+
+check.dependsOn jacocoTestReport
