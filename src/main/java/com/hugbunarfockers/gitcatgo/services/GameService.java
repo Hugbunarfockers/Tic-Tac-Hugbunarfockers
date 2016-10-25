@@ -76,12 +76,10 @@ public class GameService
 
     public boolean makeMove(char input)
     {
-        int inputValue = Character.getNumericValue(input);
-        
-        if(inputValue < 1 || inputValue > 9)
-        {
+         if(!validateInput(input))
+         {
             return false;
-        }   
+         }
 
         input--;
         int row = ((input-48)/3);
@@ -114,6 +112,17 @@ public class GameService
         {
             return null;
         }
+    }
+
+    private boolean validateInput(char input)
+    {
+        int inputValue = Character.getNumericValue(input);
+        
+        if(inputValue < 1 || inputValue > 9)
+        {
+            return false;
+        }  
+        return true;
     }
 
     private void setWinner()
