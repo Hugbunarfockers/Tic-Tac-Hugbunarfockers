@@ -56,7 +56,8 @@ public class GameServiceTest
         GameBoard board = new GameBoard();
 		GameService testBoard = new GameService(board, p1, p2);
 		
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 3; i++)
+		{
 			for(int j = 0; j < 3; j++)
 			{
 				testBoard.setBoardValue(i, j, 'x');
@@ -222,6 +223,29 @@ public class GameServiceTest
 		char[][] newBoardTwo = testBoard.getBoard();
 		assertEquals('o', newBoardTwo[0][2]);
 	}
+
+	@Test
+	public void testMakeMoveInputCheck()
+	{
+		Player p1 = new Player(1, "s", "b");
+        Player p2 = new Player(2, "h", "l");
+        GameBoard board = new GameBoard();
+		GameService testBoard = new GameService(board, p1, p2);		
+		assertEquals(false, testBoard.makeMove('B'));
+
+		board = new GameBoard();
+		testBoard = new GameService(board, p1, p2);
+		assertEquals(true, testBoard.makeMove('1'));
+
+		board = new GameBoard();
+		testBoard = new GameService(board, p1, p2);
+		assertEquals(true, testBoard.makeMove('9'));
+
+		board = new GameBoard();
+		testBoard = new GameService(board, p1, p2);
+		assertEquals(false, testBoard.makeMove(';'));
+	}
+
 
 	@Test
 	public void testCheckWinnerSetWinner(){

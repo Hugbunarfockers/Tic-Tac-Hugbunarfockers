@@ -74,8 +74,15 @@ public class GameService
         return false;
     }
 
-    public void makeMove(char input)
+    public boolean makeMove(char input)
     {
+        int inputValue = Character.getNumericValue(input);
+        
+        if(inputValue < 1 || inputValue > 9)
+        {
+            return false;
+        }   
+
         input--;
         int row = ((input-48)/3);
         int column = (input%3);
@@ -89,6 +96,8 @@ public class GameService
             setBoardValue(row, column, 'o');    
         }
         count++;
+
+        return true;
     }
 
     public Player getWinner()
