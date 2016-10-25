@@ -46,6 +46,11 @@ public class GameService
         }
     }
 
+    public boolean isBoardFull()
+    {
+        return count == 8;
+    }
+
     public boolean checkWinner()
     {
         char arr[][] = getBoard();
