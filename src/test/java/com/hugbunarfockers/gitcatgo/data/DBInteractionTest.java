@@ -1,10 +1,12 @@
 package com.hugbunarfockers.gitcatgo.data;
 
 import com.hugbunarfockers.gitcatgo.entities.Player;
+import com.hugbunarfockers.gitcatgo.entities.Score;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DBInteractionTest
 {
@@ -61,6 +63,60 @@ public class DBInteractionTest
 		assertEquals(comparePlayer.getID(), dbPlayer.getID());
 		assertEquals(comparePlayer.getName(), dbPlayer.getName());
 		assertEquals(comparePlayer.getKey(), dbPlayer.getKey());
+
+		dbm.close();
+
+		truncateTables();
+	}
+
+	@Test
+	public void testAddScore()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+		// Add players
+		assertEquals(true, dbi.addPlayer("Player1", "tests"));
+		assertEquals(true, dbi.addPlayer("Player2", "tests"));
+
+		// Add score
+		assertEquals(true, dbi.addScore(1, 2, 1));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
+	@Test
+	public void testGetScoresByPlayerID()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+		// Create compare score
+		Score compareScore = new Score(1, 2, 1);
+
+		// Add players
+		assertEquals(true, dbi.addPlayer("Player1", "tests"));
+		assertEquals(true, dbi.addPlayer("Player2", "tests"));
+
+		// Add score
+		assertEquals(true, dbi.addScore(1, 2, 1));
+
+		// Get score
+		ArrayList<Score> dbScores = dbi.getScoresByPlayerID(1);
+
+		// Assert size
+		assertEquals(1, dbScores.size());
+
+		// Compare
+		assertEquals(compareScore.getPlayer1ID(), dbScores.get(0).getPlayer1ID());
+		assertEquals(compareScore.getPlayer2ID(), dbScores.get(0).getPlayer2ID());
+		assertEquals(compareScore.getWinnerID(), dbScores.get(0).getWinnerID());
 
 		dbm.close();
 
