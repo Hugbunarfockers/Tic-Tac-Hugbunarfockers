@@ -3,7 +3,7 @@ package com.hugbunarfockers.gitcatgo.data;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class DBManagement
 {
@@ -48,20 +48,20 @@ public class DBManagement
 		}
 	}
 
-	public Statement createStatement()
+	public PreparedStatement prepareStatement(String sql)
 	{
 		if(!isClosed())
 		{
 			try
 			{
-				return db.createStatement();
+				return db.prepareStatement(sql);
 			}
 			catch(SQLException ex)
 			{
 				printSQLException(ex);
 			}
 		}
-		
+
 		return null;
 	}
 

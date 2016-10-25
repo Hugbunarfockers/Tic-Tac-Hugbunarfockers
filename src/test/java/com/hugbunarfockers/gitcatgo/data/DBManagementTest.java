@@ -2,7 +2,7 @@ package com.hugbunarfockers.gitcatgo.data;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBManagementTest
@@ -24,10 +24,10 @@ public class DBManagementTest
 	}
 
 	@Test
-	public void testCreateStatement()
+	public void testPrepareStatement()
 	{
 		DBManagement dbm = new DBManagement();
-		Statement stmt = dbm.createStatement();
+		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
 
 		try
 		{
