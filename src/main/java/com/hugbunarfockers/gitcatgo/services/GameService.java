@@ -25,6 +25,26 @@ public class GameService
         }
     }
 
+    public void fillBoard()
+    {
+        int boardSize = ticTacToe.getSize();
+        char value = 49;
+        
+        for(int i = 0; i < boardSize; i++)
+        {
+            for(int j = 0; j < boardSize; j++)
+            {
+                ticTacToe.setBoardValue(i, j, value);
+                value++;  
+            }
+        }
+    }
+
+    public char[][] getBoard()
+    {
+        return ticTacToe.getBoard();   
+    }
+
     private void makeMove()
     {
 
@@ -70,23 +90,25 @@ public class GameService
         }
     }
 
-    public void fillBoard()
+    private boolean checkWinner(char[][] arr)
     {
-        int value = 1;
         int boardSize = ticTacToe.getSize();
 
         for(int i = 0; i < boardSize; i++)
         {
-            for(int j = 0; j < boardSize; j++)
+            if(((arr[i][0] == arr[i][1]) && (arr[i][1] == arr[i][2])) || ((arr  [0][i] == arr[1][i]) && (arr[1][i] == arr[2][i])))
             {
-                ticTacToe.setBoardValue(i, j, value);
-                value++;
+                return true;
             }
         }
+
+        if(((arr[0][0] == arr[1][1]) && (arr[1][1] == arr[2][2])) || ((arr[1][1] == arr[0][2]) && (arr[0][2] == arr[2][0])))
+        {
+            return true;
+        }
+
+        return false;
     }
 
-    public int[][] getBoard()
-    {
-        return ticTacToe.getBoard();   
-    }
+    
 }

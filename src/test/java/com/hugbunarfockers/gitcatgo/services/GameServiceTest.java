@@ -14,7 +14,7 @@ public class GameServiceTest
         GameBoard board = new GameBoard();
 		GameService testBoard = new GameService(board, p1, p2);
 		testBoard.fillBoard();
-        int[][] newBoard = testBoard.getBoard();
-		assertEquals(1, newBoard[0][0]);
+       	char[][] newBoard = testBoard.getBoard();
+		assertEquals('1', newBoard[0][0]);
 	}
 }

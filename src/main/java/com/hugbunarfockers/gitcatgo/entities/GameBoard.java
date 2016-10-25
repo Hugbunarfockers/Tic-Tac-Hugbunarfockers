@@ -4,20 +4,20 @@ public class GameBoard
 {
 	private static final int SIZE = 3;
 	private int winner;
-	private int[][] board;
+	private char[][] board;
 
 	public GameBoard()
 	{
 		winner = 0;
-		board = new int[SIZE][SIZE];
+		board = new char[SIZE][SIZE];
 	}
 
-	public int[][] getBoard()
+	public char[][] getBoard()
 	{
 		return board;
 	}
 
-	public void setBoardValue(int x, int y, int player)
+	public void setBoardValue(int x, int y, char player)
 	{
 		board[x][y] = player;
 	}
