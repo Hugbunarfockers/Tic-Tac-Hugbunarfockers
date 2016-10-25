@@ -59,17 +59,64 @@ public class GameService
         for(int i = 0; i < boardSize; i++)
         {
             if(((arr[i][0] == arr[i][1]) && (arr[i][1] == arr[i][2])) || ((arr  [0][i] == arr[1][i]) && (arr[1][i] == arr[2][i])))
-            {
+            {   
+                setWinner();
                 return true;
             }
         }
 
         if(((arr[0][0] == arr[1][1]) && (arr[1][1] == arr[2][2])) || ((arr[1][1] == arr[0][2]) && (arr[0][2] == arr[2][0])))
         {
+            setWinner();  
             return true;
         }
 
         return false;
+    }
+
+    public void makeMove(char input)
+    {
+        input--;
+        int row = ((input-48)/3);
+        int column = (input%3);
+
+        if(currentPlayer == player1)
+        {
+            setBoardValue(row, column, 'x');
+        }
+        else
+        {
+            setBoardValue(row, column, 'o');    
+        }
+        count++;
+    }
+
+    public Player getWinner()
+    {
+        if(ticTacToe.getWinner() == 1)
+        {
+            return player1;
+        }
+        else if(ticTacToe.getWinner() == 2)
+        {
+            return player2;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private void setWinner()
+    {
+        if(getCurrentPlayer() == player1)
+        {
+            ticTacToe.setWinner(1);
+        }
+        else
+        {
+            ticTacToe.setWinner(2);
+        }
     }
 
     private void fillBoard()
