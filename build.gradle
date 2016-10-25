@@ -31,7 +31,7 @@ task stage {
 
 jacocoTestReport {
     reports {
-        html.enabled true
+        xml.enabled true
     }
 }
 
