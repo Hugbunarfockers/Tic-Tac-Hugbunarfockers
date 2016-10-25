@@ -24,6 +24,11 @@ public class GameService
         return ticTacToe.getBoard();   
     }
 
+    public Player getCurrentPlayer()
+    {
+        return currentPlayer;
+    }
+
     private void fillBoard()
     {
         int boardSize = ticTacToe.getSize();

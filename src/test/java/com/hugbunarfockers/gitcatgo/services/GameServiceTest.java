@@ -27,4 +27,15 @@ public class GameServiceTest
 		assertEquals(board.getBoard(), testBoard.getBoard());
 	}
 
+	@Test
+	public void testGetCurrentPlayer()
+	{
+		Player p1 = new Player(1, "s", "b");
+        Player p2 = new Player(2, "h", "l");
+        GameBoard board = new GameBoard();
+		GameService testBoard = new GameService(board, p1, p2);
+		assertEquals(p1, testBoard.getCurrentPlayer());
+	}
+
+
 }
