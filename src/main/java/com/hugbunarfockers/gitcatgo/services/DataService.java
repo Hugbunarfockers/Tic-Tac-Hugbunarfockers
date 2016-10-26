@@ -8,10 +8,10 @@ public class DataService
     private static DBManagement dbm;
     private static DBInteraction dbi;
 
-    public DataService(DBManagement dbm)
+    public DataService(String connectionString)
     {
-        this.dbm = dbm;
-        dbi = new DBInteraction(this.dbm);
+        dbm = new DBManagement(connectionString);
+        dbi = new DBInteraction(dbm);
     }
 
     public boolean addPlayer(String name, String key)
