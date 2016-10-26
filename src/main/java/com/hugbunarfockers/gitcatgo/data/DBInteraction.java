@@ -57,8 +57,8 @@ public class DBInteraction
 				String sql = "SELECT * FROM Players WHERE Name = ? AND PKey = ?";
 
 				PreparedStatement stmt = dbm.prepareStatement(sql);
-				stmt.setString(1, name.toUpperCase());
-	      		stmt.setString(2, key.toUpperCase());
+				stmt.setString(1, name);
+	      		stmt.setString(2, key);
 
 	      		ResultSet rs = stmt.executeQuery();
 

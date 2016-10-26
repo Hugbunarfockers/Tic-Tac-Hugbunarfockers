@@ -1,6 +1,7 @@
 package com.hugbunarfockers.gitcatgo.services;
 
 import com.hugbunarfockers.gitcatgo.data.*;
+import com.hugbunarfockers.gitcatgo.entities.Player;
 
 public class DataService
 {
@@ -16,5 +17,10 @@ public class DataService
     public boolean addPlayer(String name, String key)
     {
         return dbi.addPlayer(name.toUpperCase(), key.toUpperCase());
+    }
+
+    public Player getPlayer(String name, String key)
+    {
+        return dbi.getPlayer(name.toUpperCase(), key.toUpperCase());
     }
 }
