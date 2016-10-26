@@ -23,4 +23,9 @@ public class DataService
     {
         return dbi.getPlayer(name.toUpperCase(), key.toUpperCase());
     }
+
+    public boolean addScore(int player1ID, int player2ID, int winnerID)
+    {
+        return dbi.addScore(player1ID, player2ID, winnerID);
+    }
 }

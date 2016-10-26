@@ -52,6 +52,26 @@ public class DataServiceTest
 		truncateTables();
 	}
 
+	@Test
+	public void testAddScore()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		DataService dataService = new DataService(dbm);
+
+		// Add players
+		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
+		assertEquals(true, dataService.addPlayer("PLAYER2", "TESTS"));
+
+		// Add score
+		assertEquals(true, dataService.addScore(1, 2, 1));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
     private void truncateTables()
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
