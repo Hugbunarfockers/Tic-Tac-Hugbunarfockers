@@ -20,7 +20,7 @@ public class DBInteractionTest
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
         DBInteraction dbi = new DBInteraction(dbm);
 
-		assertEquals(true, dbi.addPlayer("Test", "tests"));
+		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
 
 		dbm.close();
 
@@ -35,8 +35,8 @@ public class DBInteractionTest
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
         DBInteraction dbi = new DBInteraction(dbm);
 
-		assertEquals(true, dbi.addPlayer("Test", "tests"));
-		assertEquals(false, dbi.addPlayer("Test", "tests"));
+		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
+		assertEquals(false, dbi.addPlayer("TEST", "TESTS"));
 
 		dbm.close();
 
@@ -55,7 +55,7 @@ public class DBInteractionTest
 		Player comparePlayer = new Player(1, "TEST", "TESTS");
 
 		// Add the player
-		assertEquals(true, dbi.addPlayer("Test", "tests"));
+		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
 
 		// Compare
 		Player dbPlayer = dbi.getPlayer("TEST", "TESTS");
@@ -78,8 +78,8 @@ public class DBInteractionTest
         DBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
-		assertEquals(true, dbi.addPlayer("Player1", "tests"));
-		assertEquals(true, dbi.addPlayer("Player2", "tests"));
+		assertEquals(true, dbi.addPlayer("PLAYER1", "TESTS"));
+		assertEquals(true, dbi.addPlayer("PLAYER2", "TESTS"));
 
 		// Add score
 		assertEquals(true, dbi.addScore(1, 2, 1));
@@ -98,8 +98,8 @@ public class DBInteractionTest
         DBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
-		assertEquals(true, dbi.addPlayer("Player1", "tests"));
-		assertEquals(true, dbi.addPlayer("Player2", "tests"));
+		assertEquals(true, dbi.addPlayer("PLAYER1", "TESTS"));
+		assertEquals(true, dbi.addPlayer("PLAYER2", "TESTS"));
 
 		// Add scores
 		assertEquals(true, dbi.addScore(1, 2, 1));
