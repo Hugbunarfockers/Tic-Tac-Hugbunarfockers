@@ -72,6 +72,33 @@ public class DataServiceTest
 		truncateTables();
 	}
 
+	@Test
+	public void testGetWinsBetweenPlayerIDs()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DataService dataService = new DataService(dbm);
+
+		// Add players
+		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
+		assertEquals(true, dataService.addPlayer("PLAYER2", "TESTS"));
+
+		// Add scores
+		assertEquals(true, dataService.addScore(1, 2, 1));
+		assertEquals(true, dataService.addScore(2, 1, 1));
+		assertEquals(true, dataService.addScore(1, 2, 1));
+		assertEquals(true, dataService.addScore(1, 2, 2));
+		assertEquals(true, dataService.addScore(2, 1, 2));
+
+		assertEquals(3, dataService.getWinsBetweenPlayerIDs(1, 2));
+		assertEquals(2, dataService.getWinsBetweenPlayerIDs(2, 1));
+
+		dbm.close();
+
+		truncateTables();
+	}
+
     private void truncateTables()
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);

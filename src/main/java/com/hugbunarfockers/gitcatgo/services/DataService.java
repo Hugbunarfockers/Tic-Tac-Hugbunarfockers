@@ -28,4 +28,9 @@ public class DataService
     {
         return dbi.addScore(player1ID, player2ID, winnerID);
     }
+
+    public int getWinsBetweenPlayerIDs(int playerID, int opponentID)
+    {
+        return dbi.getWinsBetweenPlayerIDs(playerID, opponentID);
+    }
 }
