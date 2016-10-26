@@ -33,4 +33,14 @@ public class DataService
     {
         return dbi.getWinsBetweenPlayerIDs(playerID, opponentID);
     }
+
+    public void close()
+    {
+        dbm.close();
+    }
+
+    public boolean isClosed()
+    {
+        return dbm.isClosed();
+    }
 }

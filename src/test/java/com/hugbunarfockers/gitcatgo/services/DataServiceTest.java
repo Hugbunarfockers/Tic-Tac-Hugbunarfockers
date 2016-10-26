@@ -99,6 +99,17 @@ public class DataServiceTest
 		truncateTables();
 	}
 
+	@Test
+	public void testClose()
+	{
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		DataService dataService = new DataService(dbm);
+
+		dataService.close();
+
+		assertEquals(true, dataService.isClosed());
+	}
+
     private void truncateTables()
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
