@@ -10,4 +10,9 @@ public class ConnectionStrings
 	{
 		return SQLITE;
 	}
+
+	public static String getMySQLConnectionString()
+	{
+		return MYSQL;
+	}
 }
