@@ -315,10 +315,10 @@ public class GameServiceTest
 
 		assertEquals(false, testBoard.isBoardFull());
 
-		/*for(int i = 0; i < 9; i++){
-			testBoard.makeMove((char)i);
+		for(int i = 1; i < 10; i++){
+			testBoard.makeMove((char)(i + 48));
 		}
 
-		assertEquals(true, testBoard.isBoardFull());*/
+		assertEquals(true, testBoard.isBoardFull());
 	}
 }
