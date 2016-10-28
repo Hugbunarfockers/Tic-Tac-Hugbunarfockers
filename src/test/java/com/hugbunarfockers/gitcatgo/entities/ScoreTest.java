@@ -38,15 +38,15 @@ public class ScoreTest
 	public void testSetPlayer2ID()
 	{
 		Score score = new Score(1, 2, 3);
-		score.setPlayer1ID(6);
-		assertEquals(6, score.getPlayer1ID());
+		score.setPlayer2ID(6);
+		assertEquals(6, score.getPlayer2ID());
 	}
 
 	@Test
 	public void testSetWinnerID()
 	{
 		Score score = new Score(1, 2, 3);
-		score.setPlayer1ID(6);
-		assertEquals(6, score.getPlayer1ID());
+		score.setWinnerID(3);
+		assertEquals(3, score.getWinnerID());
 	}
 }
