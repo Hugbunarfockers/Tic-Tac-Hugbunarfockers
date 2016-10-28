@@ -1,0 +1,60 @@
+.backboard{
+	background-color: black;
+}
+
+.grid{
+	background-color: white;	
+}
+
+.border{
+	border: 2px solid black;
+	border-color: #eeeeee;
+}
+
+.alignXO{
+	text-align: center;
+}
+
+.leftBorder{
+	border-left: 2px solid black;
+	border-color: #757575;
+}
+
+.leftTopDownBorder{
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-color: #757575;
+}
+
+.topBottom{
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	border-color: #757575;
+}
+
+.colHeight{
+	height: 100px;
+}
+
+.center{
+	padding-top: 40px;
+}
+
+.btnStyle{
+	margin-top: 20px;
+	margin-left: 15px;
+	width: 100px;
+}
+
+.hidden{
+	display: none;
+}
+
+.headerCenter{
+	margin-left: 90px;
+}
+
+.hoverClass{
+	background-color: #eceff1;
+}
