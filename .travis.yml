@@ -7,5 +7,3 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 before_script:
   - ./bin/mysql_empty_stagingDB
-services:
-  - mysql
