@@ -248,7 +248,8 @@ public class GameServiceTest
 
 
 	@Test
-	public void testCheckWinnerSetWinner(){
+	public void testCheckWinnerSetWinner()
+	{
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
 
@@ -307,7 +308,35 @@ public class GameServiceTest
 	}
 
 	@Test
-	public void testIsBoardFull(){
+	public void testCheckWinnerAxis()
+	{
+		Player p1 = new Player(1, "s", "b");
+        Player p2 = new Player(2, "h", "l");
+
+        GameBoard board = new GameBoard();
+		GameService testBoard = new GameService(board, p1, p2);
+
+		testBoard.setBoardValue(0,0, 'x');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(1,0, 'o');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(1,1, 'x');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(0,1, 'o');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(0,2, 'x');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(2,1, 'o');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(2,2, 'x');
+
+		testBoard.checkWinner();
+		assertEquals(p1, testBoard.getWinner());
+	}
+
+	@Test
+	public void testIsBoardFull()
+	{
 		Player p1 = new Player(1, "s", "b");
 		Player p2 = new Player(2, "h", "l");
 		GameBoard board = new GameBoard();
@@ -315,7 +344,8 @@ public class GameServiceTest
 
 		assertEquals(false, testBoard.isBoardFull());
 
-		for(int i = 1; i < 10; i++){
+		for(int i = 1; i < 10; i++)
+		{
 			testBoard.makeMove((char)(i + 48));
 		}
 
