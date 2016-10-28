@@ -1,4 +1,6 @@
 language: java
+script:
+  - "./gradlew check"
 jdk:
   - oraclejdk8
 after_success:
