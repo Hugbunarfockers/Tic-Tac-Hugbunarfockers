@@ -46,7 +46,7 @@ public class ScoreTest
 	public void testSetWinnerID()
 	{
 		Score score = new Score(1, 2, 3);
-		score.setWinnerID(3);
-		assertEquals(3, score.getWinnerID());
+		score.setWinnerID(4);
+		assertEquals(4, score.getWinnerID());
 	}
 }
