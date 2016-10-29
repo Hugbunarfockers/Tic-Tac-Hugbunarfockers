@@ -22,4 +22,10 @@ echo "Heroku app used: "
 echo $HEROKU_APP
 
 heroku git:remote -a $HEROKU_APP -r staging
+
+echo "Remote list: "
+git remote -v
+
+echo "Running: git push -fu staging $CURRENT_BRANCH:master"
+
 git push -fu staging $CURRENT_BRANCH:master
