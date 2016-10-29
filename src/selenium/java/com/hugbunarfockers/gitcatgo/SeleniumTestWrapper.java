@@ -24,18 +24,55 @@ public abstract class SeleniumTestWrapper
         driver = new PhantomJSDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		port = System.getenv("PORT");
-        if (port == null)
-        {
-            port = "4567";
-        }
+		setBaseURL();
 
-		baseUrl = "http://localhost:" + port;
+		if(baseUrl.contains("localhost"))
+		{
+			port = System.getenv("PORT");
+	        if (port == null) {
+	            port = "4567";
+	        }
+
+			baseUrl += port;
+		}
     }
 
     @AfterClass
     public static void closeBrowser()
     {
         driver.quit();
+    }
+
+	private static void setBaseURL()
+    {
+		String serverFilePath = System.getProperty("user.dir") + "/servers/server.txt";
+        try
+		{
+			BufferedReader reader;
+			reader = new BufferedReader(new FileReader(serverFilePath));
+			try
+			{
+				baseUrl = reader.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{
+					reader.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
     }
 }
