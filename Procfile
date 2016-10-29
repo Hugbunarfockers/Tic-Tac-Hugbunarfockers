@@ -1,1 +1,1 @@
-web: uild/install/Tic-Tac-Hugbunarfockers/bin/Tic-Tac-Hugbunarfockers
+web: build/install/Tic-Tac-Hugbunarfockers/bin/Tic-Tac-Hugbunarfockers
