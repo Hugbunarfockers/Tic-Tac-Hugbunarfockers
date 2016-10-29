@@ -116,6 +116,62 @@ public class DBInteractionTest
 		truncateTables();
 	}
 
+    @Test
+	public void testAddPlayerIsClosed()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+        dbm.close();
+		assertEquals(false, dbi.addPlayer("PLAYER1", "TEST"));
+
+		truncateTables();
+	}
+
+    @Test
+	public void testGetPlayerIsClosed()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+        dbm.close();
+		assertEquals(null, dbi.getPlayer("PLAYER1", "TEST"));
+
+		truncateTables();
+	}
+
+    @Test
+	public void testAddScoreIsClosed()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+        dbm.close();
+		assertEquals(false, dbi.addScore(1, 2, 2));
+
+		truncateTables();
+	}
+
+    @Test
+	public void testgetWinsBetweenPlayerIDsIsClosed()
+	{
+		truncateTables();
+
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+        DBInteraction dbi = new DBInteraction(dbm);
+
+        dbm.close();
+		assertEquals(0, dbi.getWinsBetweenPlayerIDs(1, 2));
+
+		truncateTables();
+	}
+
 	private void truncateTables()
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
