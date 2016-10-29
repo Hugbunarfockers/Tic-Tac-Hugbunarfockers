@@ -21,7 +21,7 @@ public class GameService
 
     public char[][] getBoard()
     {
-        return ticTacToe.getBoard();   
+        return ticTacToe.getBoard();
     }
 
     public void setBoardValue(int x, int y, char player)
@@ -48,7 +48,7 @@ public class GameService
 
     public boolean isBoardFull()
     {
-        return count == 8;
+        return count == 9;
     }
 
     public boolean checkWinner()
@@ -59,7 +59,7 @@ public class GameService
         for(int i = 0; i < boardSize; i++)
         {
             if(((arr[i][0] == arr[i][1]) && (arr[i][1] == arr[i][2])) || ((arr  [0][i] == arr[1][i]) && (arr[1][i] == arr[2][i])))
-            {   
+            {
                 setWinner();
                 return true;
             }
@@ -67,7 +67,7 @@ public class GameService
 
         if(((arr[0][0] == arr[1][1]) && (arr[1][1] == arr[2][2])) || ((arr[1][1] == arr[0][2]) && (arr[0][2] == arr[2][0])))
         {
-            setWinner();  
+            setWinner();
             return true;
         }
 
@@ -91,7 +91,7 @@ public class GameService
         }
         else
         {
-            setBoardValue(row, column, 'o');    
+            setBoardValue(row, column, 'o');
         }
         count++;
 
@@ -117,11 +117,11 @@ public class GameService
     private boolean validateInput(char input)
     {
         int inputValue = Character.getNumericValue(input);
-        
+
         if(inputValue < 1 || inputValue > 9)
         {
             return false;
-        }  
+        }
         return true;
     }
 
@@ -141,13 +141,13 @@ public class GameService
     {
         int boardSize = ticTacToe.getSize();
         char value = 49;
-        
+
         for(int i = 0; i < boardSize; i++)
         {
             for(int j = 0; j < boardSize; j++)
             {
                 setBoardValue(i, j, value);
-                value++;  
+                value++;
             }
         }
     }
