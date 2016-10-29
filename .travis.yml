@@ -13,8 +13,6 @@ deploy:
   app: gitcatgo
 sudo: required
 before_script:
-  - "./bin/mysql_empty_stagingDB"
-  - "./bin/mysql_empty_pullDB"
   - "./bin/setupHeroku"
   - "./bin/loginHeroku"
   - "./bin/deployStaging"

@@ -7,8 +7,10 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
     HEROKU_APP="gitcatgo-pullrequest"
 
     cp servers/pullrequest.txt servers/server.txt
+    ./bin/mysql_empty_pullDB
 else
     cp servers/staging.txt servers/server.txt
+    ./bin/mysql_empty_stagingDB
 fi
 
 echo "Current branch: "
