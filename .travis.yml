@@ -5,9 +5,18 @@ jdk:
   - oraclejdk8
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: heroku
+  api_key:
+    secure: XqH8up8wY+Gt0A83hbBZkaAPMILuZ9pPS7NEebyworFGsNolpyqPerMf6TpKL1c1z3EGa1+0UHqPPmLXYddvmjyNh34yXj5RIA+OUd7ChcAnNs2hopIYkSRLf/TWhQngsDX5sLV94jBWujuXvuxn72xx10vTm0APOnUVKZDHx+EHE2XvAhOh4og/igzKhjV3sdQ6bJqGBquX4viAavKYxW753YD73YAuvLvSmLzdBRS55tOtMrFJfB5U4irgpSnj9o6STKnblLjMPG2dRk35BI7oei3RqKWc6BqC6dvSIL1Mmg+Qi140bbLeER1jjrKsSiYQt/CYrKOq75umdUjUAW2mGRn/EyRQd7k+ylY5V+cjTN3yIIK8CgpWeYlkTZNjNL3lMqkuJaA77JWOe1RdI4VgC98kz3ZMt89l/OMvIaBLMEDPhvXtgZFQh2xlGTMhx9CETP6niMw08kqm8JXvgjZks4w8WG9t6Qj7NaFCdMSAzVkMRwFBG6ZzEgrG576YKuE4SMcVoHg0vA0AA/dWhp3LpLA17F9vEQWlWLRcqBJbScZb99aHzryhoSiNaRG37VMJzTjYlp1+LdVRoKluDhEo3mT+X09zrFVo5D4okjSZRR0JJUI3yqYvJnMapkvmJKmK43E/qxJh06N9N14tWqGj/2CVvu3+mPw1MX5Mw8Q=
+  app: gitcatgo
+sudo: required
 before_script:
   - "./bin/mysql_empty_stagingDB"
   - "./bin/mysql_empty_pullDB"
+  - "./bin/setupHeroku"
+  - "./bin/loginHeroku"
+  - "./bin/deployStaging"
 env:
   global:
     - secure: iAYqcEhvnJ1W82TmVcr5QzY69y1j3j6eirXfKXKkd2OOGdcrufE3QqtjDUW7EMCMYgUs2MTXZxeNHWIGzJmjv4rVb8KEn3l72KKJK6UiVnNBtASOTRIS5nhVQ9BwSxRZSKp0TgB+MLWMTd4P4Jk+4i71+yLLQSXUULWI0ut9J9/CIWM0NX3eI7OeF4JCMcQ6g07e8yihRnyutqMiPifoJxEscQ6c7nDmVzEI+qre8kB+rkKbtnACXJeCDOgX/Kb2AyNrUqeDYX6yHIh4SsDbbeEkS3qmbNdryUZcHJ9KWz7nCLjp+m+MgqPXQSHymumTL5W7BRINxa6W8NREs6CTgE9/r0FdZ41pQUA8VCYKdEwnrUYu97uElZzOfXhJBE0so7YQTZDKXIZNBGQM6+RKk9YqpXry6cAEPNHWasY/NQpd2tTzEETHCBWdQcpX+UxHiVYUlMrlpnoVTXLjoyA9d9ci9TzmspVSyfkRyEJaKb7KDNFrDB0Ta7y/G00Ri6xTxvHTj6M+w0slSTyo3E5h1v0RJs4cFOXNCBgMunkdeMJLkizpt6BgLqyIAezszC1aYzyGUojhlfNetxQ3AmPdHx5SkHCqFmCsctC2EmD8DEBjK4w+pvdBmIjtPJBc4R9S4h6SKaDE1W0EBMvuknEoGGroSwFqjqbINQYofBlAsUA=
