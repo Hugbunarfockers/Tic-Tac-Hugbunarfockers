@@ -10,20 +10,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public abstract class SeleniumTestWrapper {
+public abstract class SeleniumTestWrapper
+{
     //static ChromeDriver driver;
     static PhantomJSDriver driver;
     static String baseUrl;
     static String port;
 
     @BeforeClass
-    public static void openBrowser(){
+    public static void openBrowser()
+    {
         //driver = new ChromeDriver();
         driver = new PhantomJSDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		port = System.getenv("PORT");
-        if (port == null) {
+        if (port == null)
+        {
             port = "4567";
         }
 
@@ -31,7 +34,8 @@ public abstract class SeleniumTestWrapper {
     }
 
     @AfterClass
-    public static void closeBrowser(){
+    public static void closeBrowser()
+    {
         driver.quit();
     }
 }
