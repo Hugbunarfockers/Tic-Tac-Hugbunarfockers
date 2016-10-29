@@ -1,6 +1,7 @@
 language: java
 script:
   - "./gradlew check"
+  - "./bin/deployStaging"
 jdk:
   - oraclejdk8
 after_success:
