@@ -33,3 +33,6 @@ gradle-app.setting
 
 # Mac-specific
 *.DS_Store
+
+# MockDB
+sql/mock/
