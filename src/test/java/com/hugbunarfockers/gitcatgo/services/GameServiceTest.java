@@ -332,6 +332,22 @@ public class GameServiceTest
 
 		testBoard.checkWinner();
 		assertEquals(p1, testBoard.getWinner());
+
+		board = new GameBoard();
+		testBoard = new GameService(board, p1, p2);
+
+		testBoard.setBoardValue(0,2, 'x');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(1,0, 'o');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(1,1, 'x');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(0,1, 'o');
+		testBoard.changeCurrentPlayer();
+		testBoard.setBoardValue(2,0, 'x');
+
+		testBoard.checkWinner();
+		assertEquals(p1, testBoard.getWinner());
 	}
 
 	@Test
