@@ -10,7 +10,7 @@ public class DBManagementTest
 	private final String sqliteConnectionString = "jdbc:sqlite:sql/mock/GitCatGoMock.db";
 
 	@Test
-	public void testIsClosed()
+	public void testIsClosed() throws Exception
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		assertEquals(false, dbm.isClosed());
@@ -18,7 +18,7 @@ public class DBManagementTest
 	}
 
 	@Test
-	public void testClose()
+	public void testClose() throws Exception
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		dbm.close();
@@ -26,7 +26,7 @@ public class DBManagementTest
 	}
 
 	@Test
-	public void testPrepareStatement()
+	public void testPrepareStatement() throws Exception
 	{
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
 		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
@@ -41,6 +41,29 @@ public class DBManagementTest
 		{
 			// Assertion will fail if we end up here
 			// No need to handle the exception
+			//assertEquals(, ex.getMessage());
 		}
+	}
+
+	@Test
+	public void testPrepareStatementIfClosed() throws Exception
+	{
+		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
+
+		try
+		{
+			stmt.close();
+			dbm.close();
+			assertEquals(true, stmt.isClosed());
+		}
+		catch(SQLException ex)
+		{
+			// Assertion will fail if we end up here
+			// No need to handle the exception
+			//assertEquals(, ex.getMessage());
+		}
+
+		assertEquals(null, dbm.prepareStatement("SELECT * FROM Players"));
 	}
 }
