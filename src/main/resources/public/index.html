@@ -6,17 +6,16 @@
         <!-- load bootstrap for nicer ui -->
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css" type="text/css">
-        <link rel="icon" type="image/png" href="favicon.png">
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <h1 class="headerCenter">Git-Cat-Go</h1>        
+                    <h1 class="headerCenter">Git-Cat-Go</h1>
                 </div>
                 <div class="col-md-4"></div>
-        
+
             </div>
             <hr>
         </div>
@@ -25,24 +24,24 @@
                 <form method="post" id="playerForm" class="form-inline" role="form">
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="player1name" placeholder="Player 1 name">
-                        <br></br>
+                        <br />
                         <input type="password" class="form-control" id="player1key" placeholder="Player 1 key">
                     </div>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="player2name" placeholder="Player 2 name">
-                        <br></br>
+                        <br />
                         <input type="password" class="form-control" id="player2key" placeholder="Player 2 key">
                     </div>
                     <div>
                         <button type="submit" class="btn btn-success btnStyle" id="playBtn">Play</button>
                     </div>
-                </form> 
+                </form>
             </div>
         </div>
         <div class="container hidden" id="board">
             <div class="row">
                 <div class="col-md-4"></div>
-                <div class="col-md-4 border" id="board">
+                <div class="col-md-4 border">
                     <div class="row">
                         <div class="col-md-4 alignXO colHeight available" id="cell1">
                             <p class="center unselectable">1</p>
@@ -86,36 +85,14 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <div class="alert alert-danger alertPadding" role="alert">This square has already been occupied<div>
+                    <div class="alert alert-danger alertPadding" role="alert">This square has already been occupied</div>
                 </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
-            
-
-        
-        
 
         <!-- Load jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="ticTacToe.js"></script>
-        <!-- Use ajax to submit form, retrive joke and display on page -->
-        <script>
-        $(document).ready(function() {
-            var form = $('form');
-            form.submit(function( event ) {
-                $.ajax({
-                    type: form.attr('method'),
-                    url: form.attr('action'),
-                    data: null
-                }).done(function(joke) {
-                    $('#results').html(joke).attr('class', 'alert alert-success');
-                }).fail(function() {
-                    $('#results').html('Error, no joke found...').attr('class', 'alert alert-danger');
-                });
-                event.preventDefault();
-            });
-        });
-        </script>
     </body>
 </html>

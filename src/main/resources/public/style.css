@@ -1,62 +1,62 @@
 .backboard{
-	background-color: black;
+    background-color: black;
 }
 
 .grid{
-	background-color: white;	
+    background-color: white;
 }
 
 .border{
-	border: 2px solid black;
-	border-color: #eeeeee;
+    border: 2px solid black;
+    border-color: #eeeeee;
 }
 
 .alignXO{
-	text-align: center;
+    text-align: center;
 }
 
 .leftBorder{
-	border-left: 2px solid black;
-	border-color: #757575;
+    border-left: 2px solid black;
+    border-color: #757575;
 }
 
 .leftTopDownBorder{
-	border-left: 2px solid black;
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	border-color: #757575;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-color: #757575;
 }
 
 .topBottom{
-	border-top: 2px solid black;
-	border-bottom: 2px solid black;
-	border-color: #757575;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-color: #757575;
 }
 
 .colHeight{
-	height: 100px;
+    height: 100px;
 }
 
 .center{
-	font-size: 68px;
+    font-size: 68px;
 }
 
 .btnStyle{
-	margin-top: 20px;
-	margin-left: 15px;
-	width: 100px;
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 100px;
 }
 
 .hidden{
-	display: none;
+    display: none;
 }
 
 .headerCenter{
-	margin-left: 90px;
+    margin-left: 90px;
 }
 
 .hoverClass{
-	background-color: #eceff1;
+    background-color: #eceff1;
 }
 
 .available{
@@ -64,23 +64,23 @@
 }
 
 .unavailable{
-	background-color: #9b9b9b;
+    background-color: #9b9b9b;
 }
 
 .alertPadding{
-	padding-left: 35px;
+    padding-left: 35px;
 }
 
 .marginTop{
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 #board p{
-	
+
 }
 
 .test{
-	background-color: red;
+    background-color: red;
 }
 
 .unselectable {
