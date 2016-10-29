@@ -14,16 +14,28 @@ apply plugin: 'jacoco'
 mainClassName = 'com.hugbunarfockers.gitcatgo.GitCatGo'
 
 repositories {
-  jcenter()
+    jcenter()
+}
+
+sourceSets {
+    selenium
 }
 
 dependencies {
+    // Application dependencies
 	compile 'org.slf4j:slf4j-simple:1.7.21'
 	compile 'com.sparkjava:spark-core:2.5'
 	compile 'mysql:mysql-connector-java:6.0.5'
 	compile 'org.xerial:sqlite-jdbc:3.14.2.1'
 
-  	testCompile 'junit:junit:4.12'
+    // Unit test dependencies
+    testCompile 'junit:junit:4.12'
+
+    // Selenium dependencies
+    seleniumCompile 'junit:junit:4.12'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-firefox-driver:3.0.1'
+    seleniumCompile 'org.seleniumhq.selenium:selenium-chrome-driver:3.0.1'
+    seleniumCompile 'com.codeborne:phantomjsdriver:1.3.0'
 }
 
 task stage {
@@ -34,6 +46,11 @@ jacocoTestReport {
     reports {
         xml.enabled true
     }
+}
+
+task selenium(type: Test, dependsOn: installDist) {
+    testClassesDir = sourceSets.selenium.output.classesDir
+    classpath = sourceSets.selenium.runtimeClasspath
 }
 
 check.dependsOn jacocoTestReport
