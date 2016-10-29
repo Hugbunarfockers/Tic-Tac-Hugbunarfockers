@@ -4,9 +4,11 @@ import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
-public class GitCatGo implements SparkApplication {
+public class GitCatGo implements SparkApplication
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         staticFileLocation("/public");
         SparkApplication gitCatGo = new GitCatGo();
 
@@ -19,8 +21,10 @@ public class GitCatGo implements SparkApplication {
     }
 
     @Override
-    public void init() {
-        // TODO
+    public void init()
+    {
+        // Just something so that the server starts
+        post("/random", (req, res) -> "Test");
     }
 
 }
