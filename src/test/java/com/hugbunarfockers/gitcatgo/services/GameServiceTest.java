@@ -308,7 +308,7 @@ public class GameServiceTest
 	}
 
 	@Test
-	public void testCheckWinnerAxis()
+	public void testCheckWinnerForCrossWin()
 	{
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
