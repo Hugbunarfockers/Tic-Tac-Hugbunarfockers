@@ -1,0 +1,21 @@
+#!/bin/bash
+
+HEROKU_APP="gitcatgo-staging"
+
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+    echo "Pull request detected"
+    HEROKU_APP="gitcatgo-pullrequest"
+
+    cp servers/pullrequest.txt servers/server.txt
+else
+    cp servers/staging.txt servers/server.txt
+fi
+
+echo "Current branch: "
+echo $TRAVIS_BRANCH
+
+echo "Heroku app used: "
+echo $HEROKU_APP
+
+heroku git:remote -a $HEROKU_APP -r staging
+git push -fu staging $TRAVIS_BRANCH:master
