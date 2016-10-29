@@ -10,7 +10,8 @@ deploy:
   provider: heroku
   api_key:
     secure: XqH8up8wY+Gt0A83hbBZkaAPMILuZ9pPS7NEebyworFGsNolpyqPerMf6TpKL1c1z3EGa1+0UHqPPmLXYddvmjyNh34yXj5RIA+OUd7ChcAnNs2hopIYkSRLf/TWhQngsDX5sLV94jBWujuXvuxn72xx10vTm0APOnUVKZDHx+EHE2XvAhOh4og/igzKhjV3sdQ6bJqGBquX4viAavKYxW753YD73YAuvLvSmLzdBRS55tOtMrFJfB5U4irgpSnj9o6STKnblLjMPG2dRk35BI7oei3RqKWc6BqC6dvSIL1Mmg+Qi140bbLeER1jjrKsSiYQt/CYrKOq75umdUjUAW2mGRn/EyRQd7k+ylY5V+cjTN3yIIK8CgpWeYlkTZNjNL3lMqkuJaA77JWOe1RdI4VgC98kz3ZMt89l/OMvIaBLMEDPhvXtgZFQh2xlGTMhx9CETP6niMw08kqm8JXvgjZks4w8WG9t6Qj7NaFCdMSAzVkMRwFBG6ZzEgrG576YKuE4SMcVoHg0vA0AA/dWhp3LpLA17F9vEQWlWLRcqBJbScZb99aHzryhoSiNaRG37VMJzTjYlp1+LdVRoKluDhEo3mT+X09zrFVo5D4okjSZRR0JJUI3yqYvJnMapkvmJKmK43E/qxJh06N9N14tWqGj/2CVvu3+mPw1MX5Mw8Q=
-  app: gitcatgo
+  app:
+    master: gitcatgo
 sudo: required
 before_script:
   - "./bin/setupHeroku"
