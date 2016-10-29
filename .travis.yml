@@ -1,7 +1,6 @@
 language: java
 script:
   - "./gradlew check"
-  - "./gradlew selenium"
 jdk:
   - oraclejdk8
 after_success:
@@ -13,10 +12,6 @@ deploy:
   app:
     master: gitcatgo
 sudo: required
-before_script:
-  - "./bin/setupHeroku"
-  - "./bin/loginHeroku"
-  - "./bin/deployStaging"
 env:
   global:
     - secure: iAYqcEhvnJ1W82TmVcr5QzY69y1j3j6eirXfKXKkd2OOGdcrufE3QqtjDUW7EMCMYgUs2MTXZxeNHWIGzJmjv4rVb8KEn3l72KKJK6UiVnNBtASOTRIS5nhVQ9BwSxRZSKp0TgB+MLWMTd4P4Jk+4i71+yLLQSXUULWI0ut9J9/CIWM0NX3eI7OeF4JCMcQ6g07e8yihRnyutqMiPifoJxEscQ6c7nDmVzEI+qre8kB+rkKbtnACXJeCDOgX/Kb2AyNrUqeDYX6yHIh4SsDbbeEkS3qmbNdryUZcHJ9KWz7nCLjp+m+MgqPXQSHymumTL5W7BRINxa6W8NREs6CTgE9/r0FdZ41pQUA8VCYKdEwnrUYu97uElZzOfXhJBE0so7YQTZDKXIZNBGQM6+RKk9YqpXry6cAEPNHWasY/NQpd2tTzEETHCBWdQcpX+UxHiVYUlMrlpnoVTXLjoyA9d9ci9TzmspVSyfkRyEJaKb7KDNFrDB0Ta7y/G00Ri6xTxvHTj6M+w0slSTyo3E5h1v0RJs4cFOXNCBgMunkdeMJLkizpt6BgLqyIAezszC1aYzyGUojhlfNetxQ3AmPdHx5SkHCqFmCsctC2EmD8DEBjK4w+pvdBmIjtPJBc4R9S4h6SKaDE1W0EBMvuknEoGGroSwFqjqbINQYofBlAsUA=

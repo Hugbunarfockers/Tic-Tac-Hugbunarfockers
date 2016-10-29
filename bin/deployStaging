@@ -1,31 +1,24 @@
 #!/bin/bash
 
-HEROKU_APP="gitcatgo-staging"
-CURRENT_BRANCH=$TRAVIS_BRANCH
+# Only if this is not a pull request build
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    ./bin/setupHeroku
+    ./bin/loginHeroku
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-    echo "Pull request detected"
-    HEROKU_APP="gitcatgo-pullrequest"
-	CURRENT_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH
+    HEROKU_APP="gitcatgo-staging"
+    CURRENT_BRANCH=$TRAVIS_BRANCH
 
-    cp servers/pullrequest.txt servers/server.txt
-    ./bin/mysql_empty_pullDB
-else
     cp servers/staging.txt servers/server.txt
     ./bin/mysql_empty_stagingDB
+
+    echo "Current branch: "
+    echo $TRAVIS_BRANCH
+
+    echo "Heroku app used: "
+    echo $HEROKU_APP
+
+    heroku git:remote -a $HEROKU_APP -r staging
+    git push -fu staging $TRAVIS_BRANCH:master
+
+    ./gradlew selenium
 fi
-
-echo "Current branch: "
-echo $CURRENT_BRANCH
-
-echo "Heroku app used: "
-echo $HEROKU_APP
-
-heroku git:remote -a $HEROKU_APP -r staging
-
-echo "Remote list: "
-git remote -v
-
-echo "Running: git push -fu staging $CURRENT_BRANCH:master"
-
-git push -fu staging $CURRENT_BRANCH:master
