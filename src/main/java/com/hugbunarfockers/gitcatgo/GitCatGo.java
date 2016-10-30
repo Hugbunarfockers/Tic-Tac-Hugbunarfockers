@@ -83,6 +83,24 @@ public class GitCatGo implements SparkApplication
 				{
 					res.header("char", "O");
 				}
+
+				if(gs.checkWinner())
+				{
+					int p1ID, p2ID, wID;
+					p1ID = p1.getID();
+					p2ID = p2.getID();
+					wID = checkPlayer.getID();
+					ds.addScore(p1ID, p2ID, wID);
+					res.header("winner", checkPlayer.getName());
+				}
+				else if(gs.isBoardFull())
+				{
+					int p1ID, p2ID;
+					p1ID = p1.getID();
+					p2ID = p2.getID();
+					ds.addScore(p1ID, p2ID, 0);
+					res.header("winner", "draw");
+				}
 				
 				gs.changeCurrentPlayer();
 				

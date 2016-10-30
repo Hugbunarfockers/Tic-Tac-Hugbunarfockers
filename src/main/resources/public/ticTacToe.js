@@ -77,6 +77,17 @@ $(document).ready(function(){
                             xhr.getResponseHeader('char') + '</p>');
             $(cell).addClass('unavailable');
             $('#occupied').addClass('hidden');
+            var status = xhr.getResponseHeader('winner');
+            if(status != null){
+                if(status == 'draw')
+                {
+                    alert('The game was a draw!');
+                }
+                else
+                {
+                    alert('The winner is: ' + status + '!');
+                }
+            }
             return false;
         }).fail(function(response, status, xhr) {
             console.log('Shit happened...');
@@ -85,4 +96,5 @@ $(document).ready(function(){
         });
         event.preventDefault();
     });
+
 });

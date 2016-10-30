@@ -5,7 +5,7 @@ import com.hugbunarfockers.gitcatgo.entities.Score;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.sql.Types;
 
 public class DBInteraction
 {
@@ -89,12 +89,26 @@ public class DBInteraction
 		{
 			try
 			{
-				String sql = "INSERT INTO Scores (Player1ID, Player2ID, WinnerID) VALUES (?, ?, ?)";
+				String sql = "";
 
+				if(winnerID == 0)
+	      		{
+	      			sql = "INSERT INTO Scores (Player1ID, Player2ID) VALUES (?, ?)";
+	      		}
+	      		else
+	      		{
+	      			sql = "INSERT INTO Scores (Player1ID, Player2ID, WinnerID) VALUES (?, ?, ?)";
+	      		}
+
+				
 				PreparedStatement stmt = dbm.prepareStatement(sql);
 				stmt.setInt(1, player1ID);
 	      		stmt.setInt(2, player2ID);
-				stmt.setInt(3, winnerID);
+
+	      		if(winnerID != 0)
+	      		{
+	      			stmt.setInt(3, winnerID);
+	      		}
 
 	      		int rowsAffected = stmt.executeUpdate();
 
