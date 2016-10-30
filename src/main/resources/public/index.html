@@ -17,8 +17,8 @@
         </div>
         <hr>
         <div class="container" id="players">
-            <div class="row">
-                <form method="post" id="playerForm" class="form-inline" role="form">
+            <form method="post" id="playerForm" action="/setPlayers" class="form-inline" role="form">
+                <div class="row">
                     <div class="col-xs-2"></div>
                     <div class="col-xs-4">
                         <input type="text" class="form-control" id="player1name" placeholder="Player 1 name">
@@ -31,67 +31,69 @@
                         <input type="password" class="form-control" id="player2key" placeholder="Player 2 key">
                     </div>
                     <div class="col-xs-2"></div>
-                </form>
-            </div>
-            <div class="row">
-                <div align="center">
-                    <button type="submit" class="btn btn-success btnStyle" id="playBtn">Play</button>
                 </div>
-            </div>
+                <div class="row">
+                    <div align="center">
+                        <button type="submit" class="btn btn-success btnStyle" id="playBtn">Play</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="container hidden" id="board">
-            <div class="row" id="playerMove">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-2" align="center">
-                    <div id="player1">PLAYER1 = X</div>
-                </div>
-                <div class="col-xs-2" align="center">
-                    <div id="player2">PLAYER2 = O</div>
-                </div>
-                <div class="col-xs-4"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4 border">
-                    <div class="row">
-                        <div class="col-xs-4 alignXO colHeight available" id="cell1">
-                            <p class="center unselectable">1</p>
-                        </div>
-                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell2">
-                            <p class="center unselectable">2</p>
-                        </div>
-                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell3">
-                            <p class="center unselectable">3</p>
-                        </div>
+        <form method="post" id="boardForm" action="/makeMove" role="form">
+            <div class="container hidden" id="board">
+                <div class="row" id="playerMove">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-2" align="center">
+                        <div id="player1">PLAYER1 = X</div>
                     </div>
+                    <div class="col-xs-2" align="center">
+                        <div id="player2">PLAYER2 = O</div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4 border">
+                        <div class="row">
+                            <div class="col-xs-4 alignXO colHeight available" id="cell1">
+                                <p class="center unselectable">1</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell2">
+                                <p class="center unselectable">2</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell3">
+                                <p class="center unselectable">3</p>
+                            </div>
+                        </div>
 
-                    <div class="row">
-                        <div class="col-xs-4 alignXO topBottom colHeight available" id="cell4">
-                            <p class="center unselectable">4</p>
+                        <div class="row">
+                            <div class="col-xs-4 alignXO topBottom colHeight available" id="cell4">
+                                <p class="center unselectable">4</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell5">
+                                <p class="center unselectable">5</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell6">
+                                <p class="center unselectable">6</p>
+                            </div>
                         </div>
-                        <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell5">
-                            <p class="center unselectable">5</p>
-                        </div>
-                        <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell6">
-                            <p class="center unselectable">6</p>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xs-4 alignXO colHeight available" id="cell7">
-                            <p class="center unselectable">7</p>
-                        </div>
-                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell8">
-                            <p class="center unselectable">8</p>
-                        </div>
-                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell9">
-                            <p class="center unselectable">9</p>
+                        <div class="row">
+                            <div class="col-xs-4 alignXO colHeight available" id="cell7">
+                                <p class="center unselectable">7</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell8">
+                                <p class="center unselectable">8</p>
+                            </div>
+                            <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell9">
+                                <p class="center unselectable">9</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-xs-4"></div>
                 </div>
-                <div class="col-xs-4"></div>
             </div>
-        </div>
+        </form>
         <div class="container marginTop hidden" id="occupied">
             <div class="row">
                 <div class="col-xs-4"></div>
