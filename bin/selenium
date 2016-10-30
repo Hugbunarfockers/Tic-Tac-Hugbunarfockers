@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "==== !MAKE SURE THE SERVER IS RUNNING! ===="
+
+./gradlew clean selenium
+./bin/resetMock

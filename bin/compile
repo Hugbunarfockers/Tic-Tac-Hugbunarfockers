@@ -1,5 +1,3 @@
 #!/bin/bash
-if [ ! -d classes ]; then
-  mkdir classes
-fi
-javac src/main/java/com/hugbunarfockers/gitcatgo/*.java -d classes
+
+./gradlew clean compile
