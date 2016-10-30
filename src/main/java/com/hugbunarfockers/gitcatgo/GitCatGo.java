@@ -62,6 +62,7 @@ public class GitCatGo implements SparkApplication
 			gs.setPlayer1(p1);
 			gs.setPlayer2(p2);
 
+			res.header("testVal", "AMAZESPACEBALLS");
 			res.status(200);
             return res;
 		});

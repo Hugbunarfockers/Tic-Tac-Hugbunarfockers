@@ -35,9 +35,10 @@ $(document).ready(function(){
             url: form.attr('action'),
             data: 'player1name=' + p1name + '&player1key=' + p1key +
 					'&player2name=' + p2name + '&player2key=' + p2key
-        }).done(function() {
+        }).done(function(response) {
 			$("#board").removeClass("hidden");
 	        $("#players").addClass("hidden");
+			alert(response.getResponseHeader('testVal'));
 	        return false;
         }).fail(function() {
             //$('#results').html('Unable to set name...').attr('class', 'alert alert-danger');
