@@ -90,6 +90,32 @@ public class DBInteractionTest
 	}
 
 	@Test
+	public void testAddDraw()
+	{
+		truncateTables();
+
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
+        IDBInteraction dbi = new DBInteraction(dbm);
+
+        // Add players
+		assertEquals(true, dbi.addPlayer("PLAYER1", "TESTS"));
+		assertEquals(true, dbi.addPlayer("PLAYER2", "TESTS"));
+
+		// Getting players
+		Player p1 = dbi.getPlayer("PLAYER1", "TESTS");
+		Player p2 = dbi.getPlayer("PLAYER2", "TESTS");
+
+		// Add score
+		assertEquals(true, dbi.addScore(1, 2, 0));
+
+		// Asserting both players have 0 victories agains one another
+		assertEquals(0, dbi.getWinsBetweenPlayerIDs(p1.getID(), p2.getID()));
+		assertEquals(0, dbi.getWinsBetweenPlayerIDs(p2.getID(), p1.getID()));
+
+		truncateTables();
+	}
+
+	@Test
 	public void testGetWinsBetweenPlayerIDs()
 	{
 		truncateTables();

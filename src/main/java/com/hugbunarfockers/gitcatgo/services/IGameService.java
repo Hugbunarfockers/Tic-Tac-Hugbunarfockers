@@ -7,6 +7,18 @@ public interface IGameService
 {
     public char[][] getBoard();
 
+    public boolean checkIfOccupied(char input);
+
+    public void setBoard(GameBoard board);
+
+    public Player getPlayer1();
+
+    public void setPlayer1(Player p1);
+
+    public Player getPlayer2();
+
+    public void setPlayer2(Player p2);
+
     public void setBoardValue(int x, int y, char player);
 
     public Player getCurrentPlayer();
@@ -20,14 +32,4 @@ public interface IGameService
     public boolean makeMove(char input);
 
     public Player getWinner();
-
-	public void setBoard(GameBoard board);
-
-	public void setPlayer1(Player p1);
-
-	public void setPlayer2(Player p2);
-
-	public Player getPlayer1();
-
-	public Player getPlayer2();
 }

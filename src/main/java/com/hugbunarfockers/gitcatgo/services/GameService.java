@@ -29,7 +29,12 @@ public class GameService implements IGameService
 
     public char[][] getBoard()
     {
-        return ticTacToe.getBoard();
+        if(ticTacToe != null)
+        {
+            return ticTacToe.getBoard();
+        }
+
+        return null;
     }
 
     public boolean checkIfOccupied(char input)
