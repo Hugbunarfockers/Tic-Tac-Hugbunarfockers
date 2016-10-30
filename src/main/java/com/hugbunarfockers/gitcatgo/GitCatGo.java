@@ -69,7 +69,18 @@ public class GitCatGo implements SparkApplication
 
 		post("/makeMove", (req, res) ->
 		{
-			return null;
+			final char move = req.queryParams("move");
+			
+			if(gs.makeMove(move))
+			{
+				res.status(200);
+			}
+			else
+			{
+				res.status(400);
+			}
+
+			return res;
 		});
     }
 
