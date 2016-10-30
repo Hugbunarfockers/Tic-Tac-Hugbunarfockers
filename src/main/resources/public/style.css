@@ -1,5 +1,7 @@
+/*taken from dafont.com*/
 @font-face {font-family: Prezident; src: url('fonts/Prezident.ttf')}
 
+/*taken from patterncooler.com*/
 body{
     background-image: url("background2.jpg");
     margin: 10px;
