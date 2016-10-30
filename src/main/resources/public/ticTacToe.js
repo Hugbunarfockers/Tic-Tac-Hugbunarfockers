@@ -93,6 +93,8 @@ $(document).ready(function(){
                 {
                     alert('The winner is: ' + status + '!');
                 }
+				//make a hidden button unhidden (that resets the game with)
+				//make a hidden 
             }
             return false;
         }).fail(function(response, status, xhr) {
