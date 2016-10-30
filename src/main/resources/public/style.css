@@ -1,4 +1,19 @@
+/*taken from dafont.com*/
 @font-face {font-family: Prezident; src: url('fonts/Prezident.ttf')}
+
+/*taken from patterncooler.com*/
+body{
+    background-image: url("background2.jpg");
+    margin: 10px;
+}
+
+.topBorder{
+    width: 280px;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    background: rgba(255,255,255,0.7);
+}
+
 .backboard{
     background-color: black;
 }
@@ -14,6 +29,7 @@
 
 .alignXO{
     text-align: center;
+    background-color: #e3e3e3;
 }
 
 .headerCenter{
@@ -77,7 +93,7 @@
 }
 
 #board p{
-
+    font-family: Prezident;
 }
 
 .test{
@@ -96,6 +112,6 @@
 
 #playerMove{
     font-family: Prezident;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 1em;
 }
