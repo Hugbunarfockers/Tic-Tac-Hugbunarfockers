@@ -5,6 +5,8 @@ import com.hugbunarfockers.gitcatgo.entities.GameBoard;
 
 public interface IGameService
 {
+    public void resetGame();
+
     public char[][] getBoard();
 
     public boolean checkIfOccupied(char input);

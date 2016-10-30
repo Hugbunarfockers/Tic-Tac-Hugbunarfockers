@@ -27,6 +27,14 @@ public class GameService implements IGameService
         fillBoard();
     }
 
+    public void resetGame()
+    {
+        ticTacToe = new GameBoard();
+        fillBoard();
+        count = 0;
+        currentPlayer = player1;
+    }
+
     public char[][] getBoard()
     {
         if(ticTacToe != null)

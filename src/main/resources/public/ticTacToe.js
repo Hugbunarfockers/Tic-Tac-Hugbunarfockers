@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var boardForm = $('#boardForm');
+    var resetGame = $('#resetGame');
     var cell;
     var gameOver = false;
 
@@ -41,8 +42,8 @@ $(document).ready(function(){
         }).done(function(response) {
 			$('#board').removeClass('hidden');
 	        $('#players').addClass('hidden');
-            $('#player1').html(p1name + '= X');
-            $('#player2').html(p2name + '= O');
+            $('#player1').html(p1name.toUpperCase() + ' = X');
+            $('#player2').html(p2name.toUpperCase() + ' = O');
 	        return false;
         }).fail(function() {
             console.log('Shit happened...');
@@ -110,4 +111,18 @@ $(document).ready(function(){
         location.reload();
     });
 
+    resetGame.click(function() {
+        $.ajax({
+            type: resetGame.attr('method'),
+            url: resetGame.attr('action'),
+        }).done(function() {
+            gameOver = false;
+            $('#occupied').addClass('hidden');
+            for(var i=1; i<10; i++){
+                var cell = $('#cell'+i);
+                cell.html('<p class="center unselectable"></p>');
+                $(cell).removeClass('unavailable');
+            }
+        });
+    });
 });
