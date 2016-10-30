@@ -1,5 +1,6 @@
 package com.hugbunarfockers.gitcatgo.services;
 
+import com.hugbunarfockers.gitcatgo.data.IDBManagement;
 import com.hugbunarfockers.gitcatgo.data.DBManagement;
 import com.hugbunarfockers.gitcatgo.entities.Player;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		assertEquals(true, dataService.addPlayer("Test", "tests"));
 
@@ -30,7 +31,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-        DataService dataService = new DataService(sqliteConnectionString);
+        IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Create compare player
 		Player comparePlayer = new Player(1, "TEST", "TESTS");
@@ -55,7 +56,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Add players
 		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
@@ -74,7 +75,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-        DataService dataService = new DataService(sqliteConnectionString);
+        IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Add players
 		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
@@ -98,7 +99,7 @@ public class DataServiceTest
 	@Test
 	public void testClose()
 	{
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		dataService.close();
 
@@ -107,7 +108,7 @@ public class DataServiceTest
 
     private void truncateTables()
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 
 		try
 		{
@@ -125,7 +126,7 @@ public class DataServiceTest
 		}
 		catch(SQLException ex)
 		{
-			DBManagement.printSQLException(ex);
+			dbm.printSQLException(ex);
 		}
 
 		dbm.close();

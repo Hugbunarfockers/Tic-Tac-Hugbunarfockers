@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
-public class DBManagement
+public class DBManagement implements IDBManagement
 {
 	private Connection db;
 
@@ -64,7 +64,7 @@ public class DBManagement
 		return null;
 	}
 
-	public static void printSQLException(SQLException ex)
+	public void printSQLException(SQLException ex)
 	{
 		System.out.println("SQLException: " + ex.getMessage());
 		System.out.println("SQLState: " + ex.getSQLState());

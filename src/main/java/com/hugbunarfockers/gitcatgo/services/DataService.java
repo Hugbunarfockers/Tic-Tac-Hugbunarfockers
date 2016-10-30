@@ -3,10 +3,10 @@ package com.hugbunarfockers.gitcatgo.services;
 import com.hugbunarfockers.gitcatgo.data.*;
 import com.hugbunarfockers.gitcatgo.entities.Player;
 
-public class DataService
+public class DataService implements IDataService
 {
-    private static DBManagement dbm;
-    private static DBInteraction dbi;
+    private static IDBManagement dbm;
+    private static IDBInteraction dbi;
 
     public DataService(String connectionString)
     {

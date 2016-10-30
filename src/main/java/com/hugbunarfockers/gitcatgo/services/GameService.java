@@ -2,7 +2,7 @@ package com.hugbunarfockers.gitcatgo.services;
 
 import com.hugbunarfockers.gitcatgo.entities.*;
 
-public class GameService
+public class GameService implements IGameService
 {
     private GameBoard ticTacToe;
     private Player player1;
