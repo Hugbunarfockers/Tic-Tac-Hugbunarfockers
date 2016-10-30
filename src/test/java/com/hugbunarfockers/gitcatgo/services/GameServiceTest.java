@@ -7,6 +7,17 @@ import com.hugbunarfockers.gitcatgo.entities.*;
 public class GameServiceTest
 {
 	@Test
+	public void testAddEmptyGameService()
+	{
+		GameService testBoard = new GameService();
+
+		assertEquals(null, testBoard.getPlayer1());
+		assertEquals(null, testBoard.getPlayer2());
+		assertEquals(null, testBoard.getCurrentPlayer());
+		assertEquals(null, testBoard.getBoard());
+	}
+
+	@Test
 	public void testFillBoard()
 	{
         Player p1 = new Player(1, "s", "b");
@@ -379,5 +390,29 @@ public class GameServiceTest
 		}
 
 		assertEquals(true, testBoard.isBoardFull());
+	}
+
+	@Test
+	public void testcheckIfOccupied()
+	{
+		Player p1 = new Player(1, "s", "b");
+		Player p2 = new Player(2, "h", "l");
+		GameBoard board = new GameBoard();
+		IGameService testBoard = new GameService(board, p1, p2);
+
+		testBoard.setBoardValue(0,2, 'x');
+		
+		assertEquals(true, testBoard.checkIfOccupied('3'));
+	}
+
+	@Test
+	public void testSetBoard()
+	{
+		GameService gs = new GameService();
+		GameBoard board = new GameBoard();
+
+		gs.setBoard(board);
+		char[][] checkBoard = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+		assertEquals(checkBoard, gs.getBoard());
 	}
 }

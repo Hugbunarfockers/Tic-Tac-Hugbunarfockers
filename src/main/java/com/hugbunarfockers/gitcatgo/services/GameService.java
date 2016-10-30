@@ -29,7 +29,12 @@ public class GameService implements IGameService
 
     public char[][] getBoard()
     {
-        return ticTacToe.getBoard();
+        if(ticTacToe != null)
+        {
+            return ticTacToe.getBoard();    
+        }
+
+        return null;
     }
 
     public boolean checkIfOccupied(char input)
@@ -51,12 +56,21 @@ public class GameService implements IGameService
 		ticTacToe = board;
 		fillBoard();
 	}
+    public Player getPlayer1()
+    {
+        return player1;
+    }
 
 	public void setPlayer1(Player p1)
 	{
 		player1 = p1;
         currentPlayer = player1;
 	}
+
+    public Player getPlayer2()
+    {
+        return player2;
+    }
 
 	public void setPlayer2(Player p2)
 	{
