@@ -31,7 +31,7 @@ public class GameService implements IGameService
     {
         if(ticTacToe != null)
         {
-            return ticTacToe.getBoard();    
+            return ticTacToe.getBoard();
         }
 
         return null;
@@ -56,10 +56,6 @@ public class GameService implements IGameService
 		ticTacToe = board;
 		fillBoard();
 	}
-    public Player getPlayer1()
-    {
-        return player1;
-    }
 
 	public void setPlayer1(Player p1)
 	{
@@ -67,14 +63,19 @@ public class GameService implements IGameService
         currentPlayer = player1;
 	}
 
-    public Player getPlayer2()
-    {
-        return player2;
-    }
+	public Player getPlayer1()
+	{
+		return player1;
+	}
 
 	public void setPlayer2(Player p2)
 	{
 		player2 = p2;
+	}
+
+	public Player getPlayer2()
+	{
+		return player2;
 	}
 
     public void setBoardValue(int x, int y, char player)

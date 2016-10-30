@@ -5,15 +5,27 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 import com.hugbunarfockers.gitcatgo.entities.*;
 import com.hugbunarfockers.gitcatgo.services.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GitCatGo implements SparkApplication
 {
-	private final String sqliteConnectionString = "jdbc:sqlite:sql/mock/GitCatGoMock.db";
+	private static String connectionString;
+	private static Map gameSessions;
+	private static IDataService ds;
 
     public static void main(String[] args)
     {
         staticFileLocation("/public");
         SparkApplication gitCatGo = new GitCatGo();
+
+		gameSessions = new HashMap();
+		setConnectionString();
+		ds = new DataService(connectionString);
 
         String port = System.getenv("PORT");
         if (port != null) {
@@ -26,14 +38,13 @@ public class GitCatGo implements SparkApplication
     @Override
     public void init()
     {
-		final DataService ds = new DataService(sqliteConnectionString);
-		final GameBoard gb = new GameBoard();
-		final GameService gs = new GameService();
-		final Player p1 = new Player();
-		final Player p2 = new Player();
-
 		post("/setPlayers", (req, res) ->
 		{
+			IGameService gs = new GameService();
+			GameBoard gb = new GameBoard();
+			Player p1 = new Player();
+			Player p2 = new Player();
+
 			final String p1name = req.queryParams("player1name"),
 						 p1key = req.queryParams("player1key"),
 						 p2name = req.queryParams("player2name"),
@@ -62,19 +73,25 @@ public class GitCatGo implements SparkApplication
 			gs.setPlayer1(p1);
 			gs.setPlayer2(p2);
 
+			gameSessions.put(req.session().id().toString(), gs);
+
 			res.status(200);
             return res;
 		});
 
 		post("/makeMove", (req, res) ->
 		{
-			final String cell = req.queryParams("cell");
+			IGameService gs = (GameService) gameSessions.get(req.session().id().toString());
+			Player p1 = gs.getPlayer1();
+			Player p2 = gs.getPlayer2();
+
+			String cell = req.queryParams("cell");
 			char move = cell.charAt(cell.length()-1);
-			
+
 			if(gs.makeMove(move))
 			{
 				Player checkPlayer = gs.getCurrentPlayer();
-				
+
 				if (checkPlayer.getID() == p1.getID())
 				{
 					res.header("char", "X");
@@ -101,9 +118,9 @@ public class GitCatGo implements SparkApplication
 					ds.addScore(p1ID, p2ID, 0);
 					res.header("winner", "draw");
 				}
-				
+
 				gs.changeCurrentPlayer();
-				
+
 				res.status(200);
 			}
 			else
@@ -115,4 +132,37 @@ public class GitCatGo implements SparkApplication
 		});
     }
 
+	private static void setConnectionString()
+    {
+		String serverFilePath = System.getProperty("user.dir") + "/servers/sql/sql_server.txt";
+		//String serverFilePath = System.getProperty("user.dir") + "/servers/sql/local_sqlite.txt";
+        try
+		{
+			BufferedReader reader;
+			reader = new BufferedReader(new FileReader(serverFilePath));
+			try
+			{
+				connectionString = reader.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{
+					reader.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+    }
 }
