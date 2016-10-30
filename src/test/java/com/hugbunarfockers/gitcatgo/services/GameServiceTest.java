@@ -415,4 +415,24 @@ public class GameServiceTest
 		char[][] checkBoard = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 		assertEquals(checkBoard, gs.getBoard());
 	}
+
+	@Test
+	public void testSetPlayer1()
+	{
+		Player p1 = new Player(1, "s", "b");
+		GameService gs = new GameService();
+		gs.setPlayer1(p1);
+
+		assertEquals(p1, gs.getPlayer1());
+	}
+
+	@Test
+	public void testSetPlayer2()
+	{
+		Player p2 = new Player(1, "s", "b");
+		GameService gs = new GameService();
+		gs.setPlayer2(p2);
+
+		assertEquals(p2, gs.getPlayer2());
+	}
 }
