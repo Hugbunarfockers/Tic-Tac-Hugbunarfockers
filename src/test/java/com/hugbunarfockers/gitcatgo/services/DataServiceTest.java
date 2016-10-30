@@ -17,7 +17,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		assertEquals(true, dataService.addPlayer("Test", "tests"));
 
@@ -31,7 +31,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-        DataService dataService = new DataService(sqliteConnectionString);
+        IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Create compare player
 		Player comparePlayer = new Player(1, "TEST", "TESTS");
@@ -56,7 +56,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Add players
 		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
@@ -75,7 +75,7 @@ public class DataServiceTest
 	{
 		truncateTables();
 
-        DataService dataService = new DataService(sqliteConnectionString);
+        IDataService dataService = new DataService(sqliteConnectionString);
 
 		// Add players
 		assertEquals(true, dataService.addPlayer("PLAYER1", "TESTS"));
@@ -99,7 +99,7 @@ public class DataServiceTest
 	@Test
 	public void testClose()
 	{
-		DataService dataService = new DataService(sqliteConnectionString);
+		IDataService dataService = new DataService(sqliteConnectionString);
 
 		dataService.close();
 
