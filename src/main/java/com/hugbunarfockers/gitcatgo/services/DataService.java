@@ -6,7 +6,7 @@ import com.hugbunarfockers.gitcatgo.entities.Player;
 public class DataService
 {
     private static DBManagement dbm;
-    private static DBInteraction dbi;
+    private static IDBInteraction dbi;
 
     public DataService(String connectionString)
     {

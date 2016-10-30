@@ -18,7 +18,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
 
@@ -33,7 +33,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
 		assertEquals(false, dbi.addPlayer("TEST", "TESTS"));
@@ -49,7 +49,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Create compare player
 		Player comparePlayer = new Player(1, "TEST", "TESTS");
@@ -75,7 +75,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
 		assertEquals(true, dbi.addPlayer("PLAYER1", "TESTS"));
@@ -95,7 +95,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
 		assertEquals(true, dbi.addPlayer("PLAYER1", "TESTS"));
@@ -122,7 +122,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
 		assertEquals(false, dbi.addPlayer("PLAYER1", "TEST"));
@@ -136,7 +136,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
 		assertEquals(null, dbi.getPlayer("PLAYER1", "TEST"));
@@ -150,7 +150,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
 		assertEquals(false, dbi.addScore(1, 2, 2));
@@ -164,7 +164,7 @@ public class DBInteractionTest
 		truncateTables();
 
 		DBManagement dbm = new DBManagement(sqliteConnectionString);
-        DBInteraction dbi = new DBInteraction(dbm);
+        IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
 		assertEquals(0, dbi.getWinsBetweenPlayerIDs(1, 2));
