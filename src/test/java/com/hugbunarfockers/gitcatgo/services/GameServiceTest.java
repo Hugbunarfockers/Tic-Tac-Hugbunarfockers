@@ -12,7 +12,7 @@ public class GameServiceTest
         Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
        	char[][] newBoard = testBoard.getBoard();
 		assertEquals('2', newBoard[0][1]);
 	}
@@ -23,7 +23,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 		assertEquals(board.getBoard(), testBoard.getBoard());
 	}
 
@@ -33,7 +33,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 		assertEquals(p1, testBoard.getCurrentPlayer());
 	}
 
@@ -43,7 +43,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 		testBoard.changeCurrentPlayer();
 		assertEquals(p2, testBoard.getCurrentPlayer());
 	}
@@ -54,7 +54,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		for(int i = 0; i < 3; i++)
 		{
@@ -78,7 +78,7 @@ public class GameServiceTest
         Player p2 = new Player(2, "h", "l");
 
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		testBoard.setBoardValue(0,0, 'x');
 		testBoard.setBoardValue(0,1, 'x');
@@ -187,7 +187,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		testBoard.setBoardValue(0,0, 'x');
 		testBoard.setBoardValue(0,1, 'o');
@@ -207,7 +207,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 		testBoard.makeMove('1');
 
 		char[][] newBoard = testBoard.getBoard();
@@ -230,7 +230,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
         Player p2 = new Player(2, "h", "l");
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 		assertEquals(false, testBoard.makeMove('B'));
 
 		board = new GameBoard();
@@ -254,7 +254,7 @@ public class GameServiceTest
         Player p2 = new Player(2, "h", "l");
 
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		testBoard.setBoardValue(0,0, 'x');
 		testBoard.changeCurrentPlayer();
@@ -314,7 +314,7 @@ public class GameServiceTest
         Player p2 = new Player(2, "h", "l");
 
         GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		testBoard.setBoardValue(0,0, 'x');
 		testBoard.changeCurrentPlayer();
@@ -369,7 +369,7 @@ public class GameServiceTest
 		Player p1 = new Player(1, "s", "b");
 		Player p2 = new Player(2, "h", "l");
 		GameBoard board = new GameBoard();
-		GameService testBoard = new GameService(board, p1, p2);
+		IGameService testBoard = new GameService(board, p1, p2);
 
 		assertEquals(false, testBoard.isBoardFull());
 
