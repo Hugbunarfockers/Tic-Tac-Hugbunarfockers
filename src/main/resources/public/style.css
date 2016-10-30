@@ -1,3 +1,4 @@
+@font-face {font-family: Prezident; src: url('fonts/Prezident.ttf')}
 .backboard{
     background-color: black;
 }
@@ -13,6 +14,10 @@
 
 .alignXO{
     text-align: center;
+}
+
+.headerCenter{
+    font-family: Prezident;
 }
 
 .leftBorder{
@@ -49,10 +54,6 @@
 
 .hidden{
     display: none;
-}
-
-.headerCenter{
-    margin-left: 90px;
 }
 
 .hoverClass{
