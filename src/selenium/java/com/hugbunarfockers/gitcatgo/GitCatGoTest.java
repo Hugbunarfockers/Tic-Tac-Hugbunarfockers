@@ -58,7 +58,7 @@ public class GitCatGoTest extends SeleniumTestWrapper
     }
 
     @Test
-    public void markOneSquare()
+    public void markOneSquare() throws InterruptedException
     {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.get(baseUrl);
@@ -96,10 +96,11 @@ public class GitCatGoTest extends SeleniumTestWrapper
         WebElement cell1 = driver.findElement(By.id("cell1"));
         cell1.click();
 
-        WebElement cell1paragraph = driver.findElement(By.cssSelector("#cell1 > p"));
 
         // Wait
         wait.until(ExpectedConditions.attributeContains(By.id("cell1"), "class", "unavailable"));
+
+        WebElement cell1paragraph = driver.findElement(By.cssSelector("#cell1 > p"));
 
         assertEquals(true, cell1paragraph.getText().contains("X"));
     }
@@ -143,20 +144,20 @@ public class GitCatGoTest extends SeleniumTestWrapper
         WebElement cell5 = driver.findElement(By.id("cell5"));
         cell5.click();
 
-        WebElement cell5paragraph = driver.findElement(By.cssSelector("#cell5 > p"));
-
         // Wait
         wait.until(ExpectedConditions.attributeContains(By.id("cell5"), "class", "unavailable"));
+
+        WebElement cell5paragraph = driver.findElement(By.cssSelector("#cell5 > p"));
 
         assertEquals(true, cell5paragraph.getText().contains("X"));
 
         WebElement cell9 = driver.findElement(By.id("cell9"));
         cell9.click();
 
-        WebElement cell9paragraph = driver.findElement(By.cssSelector("#cell9 > p"));
-
         // Wait
         wait.until(ExpectedConditions.attributeContains(By.id("cell9"), "class", "unavailable"));
+
+        WebElement cell9paragraph = driver.findElement(By.cssSelector("#cell9 > p"));
 
         assertEquals(true, cell9paragraph.getText().contains("O"));
     }
