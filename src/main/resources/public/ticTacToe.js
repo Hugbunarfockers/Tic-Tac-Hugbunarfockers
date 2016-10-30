@@ -106,4 +106,8 @@ $(document).ready(function(){
         event.preventDefault();
     });
 
+    $('#resetPlayers').click(function() {
+        location.reload();
+    });
+
 });
