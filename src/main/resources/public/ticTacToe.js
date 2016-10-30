@@ -88,11 +88,11 @@ $(document).ready(function(){
                 gameOver = true;
                 if(status == 'draw')
                 {
-                    alert('The game was a draw!');
+                    $('#winnerIs').html('<p> ITS A DRAW !</p>');
                 }
                 else
                 {
-                    alert('The winner is: ' + status + '!');
+                    $('#winnerIs').html('<p> THE WINNER IS: ' + status + '!</p>');
                 }
 				//make a hidden button unhidden (that resets the game with)
 				//make a hidden

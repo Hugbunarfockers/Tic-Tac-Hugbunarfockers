@@ -39,8 +39,16 @@
                 </div>
             </form>
         </div>
+
         <form method="post" id="boardForm" action="/makeMove" role="form">
             <div class="container hidden" id="board">
+                <div class="row" id="playerMove">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4" align="center">
+                        <div id="winnerIs"></div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
                 <div class="row" id="playerMove">
                     <div class="col-xs-4"></div>
                     <div class="col-xs-2" align="center">

@@ -76,6 +76,10 @@ body{
     background-color: #eceff1;
 }
 
+#winnerIs{
+    font-size: 14px;
+}
+
 .available{
 
 }
