@@ -1,4 +1,4 @@
 #!/bin/bash
-if [ -d classes ]; then
-  rm -rf classes/
-fi
+
+./gradlew clean
+./bin/resetMock
