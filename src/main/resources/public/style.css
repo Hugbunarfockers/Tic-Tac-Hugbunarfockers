@@ -1,9 +1,9 @@
 /*taken from dafont.com*/
 @font-face {font-family: Prezident; src: url('fonts/Prezident.ttf')}
 
-/*taken from patterncooler.com*/
+/*taken from subtlepatterns.com*/
 body{
-    background-image: url("background2.jpg");
+    background-image: url("background7.png");
     margin: 10px;
 }
 
@@ -11,7 +11,7 @@ body{
     width: 280px;
     border-radius: 5px;
     padding-bottom: 10px;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.5);
 }
 
 .backboard{
@@ -29,7 +29,7 @@ body{
 
 .alignXO{
     text-align: center;
-    background-color: #e3e3e3;
+    background: rgba(255,255,255,0.5);
 }
 
 .headerCenter{
