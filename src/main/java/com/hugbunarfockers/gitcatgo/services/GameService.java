@@ -10,7 +10,15 @@ public class GameService
     private Player currentPlayer;
     private int count = 0;
 
-    public GameService(GameBoard board, Player p1, Player p2)
+	public GameService()
+	{
+		ticTacToe = null;
+		player1 = null;
+		player2 = null;
+		currentPlayer = player1;
+	}
+
+	public GameService(GameBoard board, Player p1, Player p2)
     {
         ticTacToe = board;
         player1 = p1;
@@ -23,6 +31,22 @@ public class GameService
     {
         return ticTacToe.getBoard();
     }
+
+	public void setBoard(GameBoard board)
+	{
+		ticTacToe = board;
+		fillBoard();
+	}
+
+	public void setPlayer1(Player p1)
+	{
+		player1 = p1;
+	}
+
+	public void setPlayer2(Player p2)
+	{
+		player2 = p2;
+	}
 
     public void setBoardValue(int x, int y, char player)
     {
