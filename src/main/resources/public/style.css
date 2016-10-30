@@ -84,7 +84,7 @@
     background-color: red;
 }
 
-.unselectable {
+.unselectable{
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -92,4 +92,10 @@
     -ms-user-select: none;
     user-select: none;
     cursor: default;
+}
+
+#playerMove{
+    font-family: Prezident;
+    font-size: 12px;
+    margin-bottom: 1em;
 }
