@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Only if this is not a pull request build
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    ./bin/setupHeroku
+    ./bin/loginHeroku
+
+    HEROKU_APP="gitcatgo-staging"
+    CURRENT_BRANCH=$TRAVIS_BRANCH
+
+    cp servers/staging.txt servers/server.txt
+    ./bin/mysql_empty_stagingDB
+
+    echo "Current branch: "
+    echo $TRAVIS_BRANCH
+
+    echo "Heroku app used: "
+    echo $HEROKU_APP
+
+    heroku git:remote -a $HEROKU_APP -r staging
+    git push -fu staging $TRAVIS_BRANCH:master
+
+    ./gradlew selenium
+fi
