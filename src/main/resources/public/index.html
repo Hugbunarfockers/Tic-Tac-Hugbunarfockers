@@ -10,84 +10,95 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <h1 class="headerCenter">Git-Cat-Go</h1>
+                <div class="col-xs-12">
+                    <h1 class="headerCenter" align="center">GIT-CAT-GO</h1>
                 </div>
-                <div class="col-md-4"></div>
-
             </div>
             <hr>
         </div>
         <div class="container" id="players">
             <div class="row">
                 <form method="post" id="playerForm" class="form-inline" role="form">
-                    <div class="col-md-6">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-4">
                         <input type="text" class="form-control" id="player1name" placeholder="Player 1 name">
                         <br />
                         <input type="password" class="form-control" id="player1key" placeholder="Player 1 key">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-xs-4">
                         <input type="text" class="form-control" id="player2name" placeholder="Player 2 name">
                         <br />
                         <input type="password" class="form-control" id="player2key" placeholder="Player 2 key">
                     </div>
-                    <div>
-                        <button type="submit" class="btn btn-success btnStyle" id="playBtn">Play</button>
-                    </div>
+                    <div class="col-xs-2"></div>
                 </form>
+            </div>
+            <div class="row">
+                <div align="center">
+                    <button type="submit" class="btn btn-success btnStyle" id="playBtn">Play</button>
+                </div>
             </div>
         </div>
         <div class="container hidden" id="board">
+            <div class="row" id="playerMove">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-2" align="center">
+                    <div id="player1">PLAYER1 = X</div>
+                </div>
+                <div class="col-xs-2" align="center">
+                    <div id="player2">PLAYER2 = O</div>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4 border">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4 border">
                     <div class="row">
-                        <div class="col-md-4 alignXO colHeight available" id="cell1">
+                        <div class="col-xs-4 alignXO colHeight available" id="cell1">
                             <p class="center unselectable">1</p>
                         </div>
-                        <div class="col-md-4 alignXO leftBorder colHeight available" id="cell2">
+                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell2">
                             <p class="center unselectable">2</p>
                         </div>
-                        <div class="col-md-4 alignXO leftBorder colHeight available" id="cell3">
+                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell3">
                             <p class="center unselectable">3</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 alignXO topBottom colHeight available" id="cell4">
+                        <div class="col-xs-4 alignXO topBottom colHeight available" id="cell4">
                             <p class="center unselectable">4</p>
                         </div>
-                        <div class="col-md-4 alignXO leftTopDownBorder colHeight available" id="cell5">
+                        <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell5">
                             <p class="center unselectable">5</p>
                         </div>
-                        <div class="col-md-4 alignXO leftTopDownBorder colHeight available" id="cell6">
+                        <div class="col-xs-4 alignXO leftTopDownBorder colHeight available" id="cell6">
                             <p class="center unselectable">6</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 alignXO colHeight available" id="cell7">
+                        <div class="col-xs-4 alignXO colHeight available" id="cell7">
                             <p class="center unselectable">7</p>
                         </div>
-                        <div class="col-md-4 alignXO leftBorder colHeight available" id="cell8">
+                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell8">
                             <p class="center unselectable">8</p>
                         </div>
-                        <div class="col-md-4 alignXO leftBorder colHeight available" id="cell9">
+                        <div class="col-xs-4 alignXO leftBorder colHeight available" id="cell9">
                             <p class="center unselectable">9</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-xs-4"></div>
             </div>
         </div>
         <div class="container marginTop hidden" id="occupied">
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
                     <div class="alert alert-danger alertPadding" role="alert">This square has already been occupied</div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-xs-4"></div>
             </div>
         </div>
 
