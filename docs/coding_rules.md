@@ -11,7 +11,9 @@ Naming conventions:
  * Always write ID with uppercase, this overwrites the other rules.
     * Do not write Id or id.
 
-Allman style is used for all brackets.
+Allman style is used for all brackets in .java files.
+CSS default style is used for all brackets in .css files.
+Stroustrup style is used for all brackets in .js files.
 
 Class structure, in this order:
  * Private members
