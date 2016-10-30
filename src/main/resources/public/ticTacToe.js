@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var boardForm = $('#boardForm');
     var cell;
+    var gameOver = false;
 
     $('#playBtn').attr('disabled', true);
 
@@ -40,6 +41,8 @@ $(document).ready(function(){
         }).done(function(response) {
 			$('#board').removeClass('hidden');
 	        $('#players').addClass('hidden');
+            $('#player1').html(p1name + '= X');
+            $('#player2').html(p2name + '= O');
 	        return false;
         }).fail(function() {
             console.log('Shit happened...');
@@ -62,7 +65,9 @@ $(document).ready(function(){
 
     $('.available').click(function() {
         cell = $(this);
-        boardForm.submit();
+        if(!gameOver){
+            boardForm.submit();
+        }
     });
 
     boardForm.submit(function(event){
@@ -79,6 +84,7 @@ $(document).ready(function(){
             $('#occupied').addClass('hidden');
             var status = xhr.getResponseHeader('winner');
             if(status != null){
+                gameOver = true;
                 if(status == 'draw')
                 {
                     alert('The game was a draw!');
