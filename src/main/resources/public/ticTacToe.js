@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var boardForm = $('#boardForm');
+    var cell;
 
     $('#playBtn').attr('disabled', true);
 
@@ -41,6 +43,7 @@ $(document).ready(function(){
 	        return false;
         }).fail(function() {
             console.log('Shit happened...');
+            return false;
         });
         event.preventDefault();
     });
@@ -57,13 +60,29 @@ $(document).ready(function(){
         }
     );
 
-    $('.available').click(function(){
-        if( $(this).hasClass('unavailable')){
-            $('#occupied').removeClass('hidden');
-        }
-        else{
-            $(this).addClass('unavailable');
+    $('.available').click(function() {
+        cell = $(this);
+        boardForm.submit();
+    });
+
+    boardForm.submit(function(event){
+        var cellid = cell.attr('id');
+        $.ajax({
+            type: boardForm.attr('method'),
+            url: boardForm.attr('action'),
+            data: 'cell=' + cellid
+        }).done(function(response, status, xhr) {
+            console.log('Shit worked...');
+            $(cell).html('<p class="center unselectable">' +
+                            xhr.getResponseHeader('char') + '</p>');
+            $(cell).addClass('unavailable');
             $('#occupied').addClass('hidden');
-        }
+            return false;
+        }).fail(function(response, status, xhr) {
+            console.log('Shit happened...');
+            $('#occupied').removeClass('hidden');
+            return false;
+        });
+        event.preventDefault();
     });
 });

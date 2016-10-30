@@ -32,6 +32,20 @@ public class GameService
         return ticTacToe.getBoard();
     }
 
+    public boolean checkIfOccupied(char input)
+    {
+        input--;
+        int row = ((input-48)/3);
+        int col = (input%3);
+        char[][] board = ticTacToe.getBoard();
+        char cell = board[row][col];
+        if(cell == 'x' || cell == 'o')
+        {
+            return true;
+        }
+        return false;
+    }
+
 	public void setBoard(GameBoard board)
 	{
 		ticTacToe = board;
@@ -41,6 +55,7 @@ public class GameService
 	public void setPlayer1(Player p1)
 	{
 		player1 = p1;
+        currentPlayer = player1;
 	}
 
 	public void setPlayer2(Player p2)
@@ -100,10 +115,10 @@ public class GameService
 
     public boolean makeMove(char input)
     {
-         if(!validateInput(input))
-         {
+        if(!validateInput(input))
+        {
             return false;
-         }
+        }
 
         input--;
         int row = ((input-48)/3);
@@ -142,10 +157,11 @@ public class GameService
     {
         int inputValue = Character.getNumericValue(input);
 
-        if(inputValue < 1 || inputValue > 9)
+        if(inputValue < 1 || inputValue > 9 || checkIfOccupied(input))
         {
             return false;
         }
+
         return true;
     }
 
