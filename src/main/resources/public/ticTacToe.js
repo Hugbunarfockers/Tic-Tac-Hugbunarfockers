@@ -123,6 +123,7 @@ $(document).ready(function(){
                 cell.html('<p class="center unselectable"></p>');
                 $(cell).removeClass('unavailable');
             }
+            $('#winnerIs').html('');
         });
     });
 });

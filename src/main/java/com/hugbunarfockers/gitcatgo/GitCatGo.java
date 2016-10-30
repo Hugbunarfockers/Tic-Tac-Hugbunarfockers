@@ -135,7 +135,7 @@ public class GitCatGo implements SparkApplication
 		{
 			IGameService gs = (GameService) gameSessions.get(req.session().id().toString());
 			gs.resetGame();
-			
+
 
 			return res;
 		});
@@ -143,8 +143,8 @@ public class GitCatGo implements SparkApplication
 
 	private static void setConnectionString()
     {
-		//String serverFilePath = System.getProperty("user.dir") + "/servers/sql/sql_server.txt";
-		String serverFilePath = System.getProperty("user.dir") + "/servers/sql/local_sqlite.txt";
+		String serverFilePath = System.getProperty("user.dir") + "/servers/sql/sql_server.txt";
+		//String serverFilePath = System.getProperty("user.dir") + "/servers/sql/local_sqlite.txt";
         try
 		{
 			BufferedReader reader;
