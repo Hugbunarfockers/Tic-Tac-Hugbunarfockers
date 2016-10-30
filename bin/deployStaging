@@ -10,6 +10,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     cp servers/staging.txt servers/server.txt
     ./bin/mysql_empty_stagingDB
+	cp servers/sql/staging_mysql.txt servers/sql/sql_server.txt
 
     echo "Current branch: "
     echo $TRAVIS_BRANCH

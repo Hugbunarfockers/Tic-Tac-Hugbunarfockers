@@ -5,12 +5,16 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 import com.hugbunarfockers.gitcatgo.entities.*;
 import com.hugbunarfockers.gitcatgo.services.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GitCatGo implements SparkApplication
 {
-	private static final String sqliteConnectionString = "jdbc:sqlite:sql/mock/GitCatGoMock.db";
+	private static String connectionString;
 	private static Map gameSessions;
 	private static IDataService ds;
 
@@ -20,7 +24,8 @@ public class GitCatGo implements SparkApplication
         SparkApplication gitCatGo = new GitCatGo();
 
 		gameSessions = new HashMap();
-		ds = new DataService(sqliteConnectionString);
+		setConnectionString();
+		ds = new DataService(connectionString);
 
         String port = System.getenv("PORT");
         if (port != null) {
@@ -127,4 +132,37 @@ public class GitCatGo implements SparkApplication
 		});
     }
 
+	private static void setConnectionString()
+    {
+		String serverFilePath = System.getProperty("user.dir") + "/servers/sql/sql_server.txt";
+		//String serverFilePath = System.getProperty("user.dir") + "/servers/sql/local_sqlite.txt";
+        try
+		{
+			BufferedReader reader;
+			reader = new BufferedReader(new FileReader(serverFilePath));
+			try
+			{
+				connectionString = reader.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+			finally
+			{
+				try
+				{
+					reader.close();
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+    }
 }
