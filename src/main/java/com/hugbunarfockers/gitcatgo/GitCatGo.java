@@ -3,9 +3,12 @@ package com.hugbunarfockers.gitcatgo;
 import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
+import com.hugbunarfockers.gitcatgo.entities.*;
+import com.hugbunarfockers.gitcatgo.services.*;
 
 public class GitCatGo implements SparkApplication
 {
+	private final String sqliteConnectionString = "jdbc:sqlite:sql/mock/GitCatGoMock.db";
 
     public static void main(String[] args)
     {
@@ -23,8 +26,50 @@ public class GitCatGo implements SparkApplication
     @Override
     public void init()
     {
-        // Just something so that the server starts
+		final DataService ds = new DataService(sqliteConnectionString);
+		final GameBoard gb = new GameBoard();
+		final GameService gs = null;
+		final Player p1 = new Player();
+		final Player p2 = new Player();
+
+		if(gs != null)
+		{
+
+		}
+
+		post("/setPlayers", (req, res) ->
+		{
+			final String p1name = req.queryParams("player1name"),
+					p1key = req.queryParams("player1key"),
+					p2name = req.queryParams("player2name"),
+					p2key = req.queryParams("player2key");
+			ds.addPlayer(p1name, p1key);
+			ds.addPlayer(p2name, p2key);
+
+			Player p1temp = ds.getPlayer(
+				p1name,
+				p1key
+			);
+			p1.setID(p1temp.getID());
+			p1.setName(p1temp.getName());
+			p1.setKey(p1temp.getKey());
+			Player p2temp = ds.getPlayer(
+				p2name,
+				p2key
+			);
+			p2.setID(p2temp.getID());
+			p2.setName(p2temp.getName());
+			p2.setKey(p2temp.getKey());
+			res.status(200);
+            return res;
+		});
+
         post("/random", (req, res) -> "Test");
     }
+
+	public void setPlayers(DataService ds, String p1n, String p1k, String p2n, String p2k)
+	{
+
+	}
 
 }

@@ -23,6 +23,28 @@ $(document).ready(function(){
         return false;
     });
 
+	var form = $('#playerForm');
+    form.submit(function( event )
+	{
+        var p1name = $("#player1name").val();
+        var p1key = $("#player1key").val();
+		var p2name = $("#player2name").val();
+		var p2key = $("#player2key").val();
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: 'player1name=' + p1name + '&player1key=' + p1key +
+					'&player2name=' + p2name + '&player2key=' + p2key
+        }).done(function() {
+			$("#board").removeClass("hidden");
+	        $("#players").addClass("hidden");
+	        return false;
+        }).fail(function() {
+            //$('#results').html('Unable to set name...').attr('class', 'alert alert-danger');
+        });
+        event.preventDefault();
+    });
+
     var thisId;
     $(".available").hover(
         function(){
