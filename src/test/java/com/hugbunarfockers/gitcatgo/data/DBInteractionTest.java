@@ -17,7 +17,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
@@ -32,7 +32,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
 		assertEquals(true, dbi.addPlayer("TEST", "TESTS"));
@@ -48,7 +48,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Create compare player
@@ -74,7 +74,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
@@ -94,7 +94,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
 		// Add players
@@ -121,7 +121,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
@@ -135,7 +135,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
@@ -149,7 +149,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
@@ -163,7 +163,7 @@ public class DBInteractionTest
 	{
 		truncateTables();
 
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
         IDBInteraction dbi = new DBInteraction(dbm);
 
         dbm.close();
@@ -174,7 +174,7 @@ public class DBInteractionTest
 
 	private void truncateTables()
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 
 		try
 		{
@@ -192,7 +192,7 @@ public class DBInteractionTest
 		}
 		catch(SQLException ex)
 		{
-			DBManagement.printSQLException(ex);
+			dbm.printSQLException(ex);
 		}
 
 		dbm.close();

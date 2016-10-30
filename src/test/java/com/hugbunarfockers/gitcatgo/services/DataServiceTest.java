@@ -1,5 +1,6 @@
 package com.hugbunarfockers.gitcatgo.services;
 
+import com.hugbunarfockers.gitcatgo.data.IDBManagement;
 import com.hugbunarfockers.gitcatgo.data.DBManagement;
 import com.hugbunarfockers.gitcatgo.entities.Player;
 import java.sql.SQLException;
@@ -107,7 +108,7 @@ public class DataServiceTest
 
     private void truncateTables()
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 
 		try
 		{
@@ -125,7 +126,7 @@ public class DataServiceTest
 		}
 		catch(SQLException ex)
 		{
-			DBManagement.printSQLException(ex);
+			dbm.printSQLException(ex);
 		}
 
 		dbm.close();

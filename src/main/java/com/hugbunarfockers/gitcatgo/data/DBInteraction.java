@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class DBInteraction implements IDBInteraction
 {
-	private DBManagement dbm;
+	private IDBManagement dbm;
 
-	public DBInteraction(DBManagement dbm)
+	public DBInteraction(IDBManagement dbm)
 	{
 		this.dbm = dbm;
 	}
@@ -39,7 +39,7 @@ public class DBInteraction implements IDBInteraction
 			}
 			catch(SQLException ex)
 			{
-				DBManagement.printSQLException(ex);
+				printSQLException(ex);
 			}
 		}
 
@@ -76,7 +76,7 @@ public class DBInteraction implements IDBInteraction
 			}
 			catch(SQLException ex)
 			{
-				DBManagement.printSQLException(ex);
+				printSQLException(ex);
 			}
 		}
 
@@ -107,7 +107,7 @@ public class DBInteraction implements IDBInteraction
 			}
 			catch(SQLException ex)
 			{
-				DBManagement.printSQLException(ex);
+				printSQLException(ex);
 			}
 		}
 
@@ -146,10 +146,17 @@ public class DBInteraction implements IDBInteraction
 			}
 			catch(SQLException ex)
 			{
-				DBManagement.printSQLException(ex);
+				printSQLException(ex);
 			}
 		}
 
 		return wins;
+	}
+
+	public void printSQLException(SQLException ex)
+	{
+		System.out.println("SQLException: " + ex.getMessage());
+		System.out.println("SQLState: " + ex.getSQLState());
+		System.out.println("VendorError: " + ex.getErrorCode());
 	}
 }

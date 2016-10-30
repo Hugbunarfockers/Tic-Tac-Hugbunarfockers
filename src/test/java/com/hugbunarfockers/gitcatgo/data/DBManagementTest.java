@@ -12,7 +12,7 @@ public class DBManagementTest
 	@Test
 	public void testIsClosed() throws Exception
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 		assertEquals(false, dbm.isClosed());
 		dbm.close();
 	}
@@ -20,7 +20,7 @@ public class DBManagementTest
 	@Test
 	public void testClose() throws Exception
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 		dbm.close();
 		assertEquals(true, dbm.isClosed());
 	}
@@ -28,7 +28,7 @@ public class DBManagementTest
 	@Test
 	public void testPrepareStatement() throws Exception
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
 
 		try
@@ -48,7 +48,7 @@ public class DBManagementTest
 	@Test
 	public void testPrepareStatementIfClosed() throws Exception
 	{
-		DBManagement dbm = new DBManagement(sqliteConnectionString);
+		IDBManagement dbm = new DBManagement(sqliteConnectionString);
 		PreparedStatement stmt = dbm.prepareStatement("SELECT * FROM Players");
 
 		try
