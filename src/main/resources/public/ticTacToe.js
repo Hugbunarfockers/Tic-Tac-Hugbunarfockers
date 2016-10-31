@@ -117,7 +117,7 @@ $(document).ready(function(){
             url: resetGame.attr('action'),
         }).done(function() {
             gameOver = false;
-            $('#occupied').addClass('hidden');
+            $('#resetButtons').addClass('hidden');
             for(var i=1; i<10; i++){
                 var cell = $('#cell'+i);
                 cell.html('<p class="center unselectable"></p>');
